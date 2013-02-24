@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name*</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#about">About*</a></li>
+              <li><a href="#contact">Contact*</a></li>
+                <li><a href="signin.html">Login</a></li>
+                <li><a href="signup.html">Register</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div id="book_shift" class="span2"></div>
+    <div id="book_text" class="container span8">
+
+      <h1>Bootstrap starter template</h1>
+      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+
+
+      <div id="ofps_content">
+      <div>
+      <div class="nav-header" style="background: #e0f2be"><table width="100%"><tr><td width="20%" align="left" valign="center"><a accesskey="p" href="base_and_core.html"><i class="icon-arrow-left"> </i> <span class="link">Part I</span></a> </td><td width="40%" align="center"><h3><a accesskey="h" href="index.html">Dojo: The Definitive Guide</a></h3><h2>Chapter 1. Toolkit Overview</h2></td><td width="20%" align="right" valign="center"> <a accesskey="n" href="language_and_browser_utilities.html"><span class="link">Chapter 2</span><i class="icon-arrow-right"> </i></a></td></tr></table></div>
+
+      <div class="chapter" lang="en" id="toolkit_overview" xml:lang="en"><div class="titlepage"><div><div><h2 class="title">Chapter 1. Toolkit Overview</h2></div></div></div><p id="ch01_id35942760">This chapter provides an overview of Dojo's architecture, takes
+          you through installing Dojo, introduces some domain-specific jargon,
+          runs through the bootstrapping process, and then provides some example
+          code that should whet your appetite for the chapters that follow. Like
+          any other introduction, much of this chapter paints in broad strokes and
+          sets the tone for the rest of the book. Hopefully, you'll find it
+          helpful as you begin your journey with the toolkit.</p><div class="comment_container" id="c_ch01_id35942760"></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="overview_of_dojo_apostrophy_s">Overview of Dojo's Architecture</h2></div></div></div><p id="ch01_id35942700">As you're about to see, describing Dojo as a
+          <span class="emphasis"><em>toolkit</em></span> is no mere coincidence. In addition to
+          providing a JavaScript standard library of sorts, Dojo also packs a
+          collection of feature-rich, turnkey widgets that require little to no
+          JavaScript coding at all, build tools, a testing framework, and more.
+          This section provides an overview of Dojo's architecture from a broad
+          point of view, shown in <a class="xref" href="toolkit_overview.html#one_depiction_of_how_the_various" title="Figure 1.1. One depiction of how the various Dojo components can be thought of as relating to one another">Figure 1.1, “One depiction of how the various Dojo components can be
+              thought of as relating to one another”</a>. As you'll see, the
+          organization for the rest of this book is largely driven by the
+          toolkit's architecture. Even though DojoX is displayed as an
+          independent entity from Dijit, DojoX resources could also be built
+          upon Dijit resources, just as your own custom widgets could leverage
+          any combination of Dijit and DojoX resources.<a id="IDX-CHP-1-0023" class="indexterm"></a><a id="IDX-CHP-1-0024" class="indexterm"></a><a id="IDX-CHP-1-0025" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35942700"></div><div class="figure" id="one_depiction_of_how_the_various"><p class="title"><b>Figure 1.1. One depiction of how the various Dojo components can be
+          thought of as relating to one another</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e1076"><a href="#" class="box"><img src="pic/dojo_0101.png" alt="One depiction of how the various Dojo components can be thought of as relating to one another"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_one_depiction_of_how_the_various"></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="base">Base</h3></div></div></div><p id="ch01_id35942935">The kernel of Dojo is <span class="emphasis"><em>Base</em></span>, an
+          ultra-compact, highly optimized library that provides the foundation
+          for everything else in the toolkit. Among other things, Base
+          provides convenient language and AJAX utilities, a packaging system
+          that allows you to pull in Dojo resources on-the-fly instead of
+          requiring them to all be slurped in when the page loads. It also
+          supplies you with tools for creating and manipulating inheritance
+          hierarchies, a means of almost universally querying the DOM using
+          CSS3 selectors, and a fabric that standardizes DOM events amongst
+          various browsers. Everything that Base provides is available in the
+          top level of the toolkit's namespace as a <code class="literal">dojo.*</code> function or attribute. Base comes
+          packaged as a single file, <span class="emphasis"><em>dojo.js</em></span>, which comes
+          across the wire at under 30KB, and when you consider that most
+          Flash-based advertisements that inundate the web are considerably
+          larger than 30KB, such a small number seems quite amazing.
+          <a id="IDX-CHP-1-0026" class="indexterm"></a>
+          <a id="IDX-CHP-1-0027" class="indexterm"></a>
+          <a id="IDX-CHP-1-0028" class="indexterm"></a>
+          </p><div class="comment_container" id="c_ch01_id35942935"></div>
+
+          <div class="well">
+
+          <h3 class="title">Tip</h3><p id="ch01_id35942989">If you look at the actual size of
+          <span class="emphasis"><em>dojo.js</em></span> on disk, you'll see that it is around
+          80KB, but because web servers generally process content as it
+          comes "across the wire" to the browser, it's the size of the
+          compressed content that drives the amount of time it takes to
+          download. If you manually apply gzip compression to
+          <span class="emphasis"><em>dojo.js</em></span>, you should see that it reduces in
+          size by about one-third of the original size.</p><div class="comment_container" id="c_ch01_id35942989"></div>
+
+          </div>
+
+          <p id="ch01_id35943003">One other really interesting thing about Base is that it is
+          designed to <span class="emphasis"><em>bootstrap</em></span> the Dojo essentials
+          automatically by simply including the <span class="emphasis"><em>dojo.js</em></span>
+          file into the page. To oversimplify things a bit, bootstrapping
+          basically entails detecting the environment, smoothing out browser
+          incompatibilities, and loading the <code class="literal">dojo</code> namespace. Various configuration
+          options can also be specified to automatically parse any widgets in
+          the page and perform other initialization tasks. (All coming up in
+          future chapters.)<a id="IDX-CHP-1-0029" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943003"></div><p id="ch01_id35943031">Base provides a tremendous wealth of utility for many standard
+          operations you'll commonly need to achieve when doing just about
+          anything in JavaScript. Even if you don't use anything else in the
+          toolkit, Base will probably be a valuable resource that you won't
+          want to live without once you've experienced the productivity boost
+          it provides. There is no Dojo without Base; everything in the
+          toolkit depends or builds on it one way or another.</p><div class="comment_container" id="c_ch01_id35943031"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35943043">With the contents of the Base being settled and fairly
+          uniform, the terms "Base" is being used less and less within the
+          project as time goes on, and you may even hear the term "Base"
+          used interchangeably with "dojo.js."</p><div class="comment_container" id="c_ch01_id35943043"></div></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="core">Core</h3></div></div></div><p id="ch01_id35943058">Core builds on Base by offering additional facilities for
+          parsing widgets, advanced animation effects, drag-and-drop
+          facilities, internationalization (i18n), back-button handling,
+          managing cookies, and more. Resources available through Core are
+          often used frequently and provide fundamental support for common
+          operations, but were not deemed universal enough to include in Base.
+          Although the distinction between what did and didn't make it into
+          Core may not be a perfect boundary, Dojo's packaging system
+          trivializes the amount of effort required to pull in additional
+          modules and resources as needed with a simple mechanism that works
+          like a <code class="literal">#include</code> from C or an
+          <code class="literal">import</code> statement from
+          Java.<a id="IDX-CHP-1-0030" class="indexterm"></a><a id="IDX-CHP-1-0031" class="indexterm"></a><a id="IDX-CHP-1-0032" class="indexterm"></a><a id="IDX-CHP-1-0033" class="indexterm"></a><a id="IDX-CHP-1-0034" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943058"></div><p id="ch01_id35943118">In general, distinguishing between Base and Core is simple:
+          any module or resource that you have to explicitly import into the
+          page external to <span class="emphasis"><em>dojo.js</em></span> is a part of Core if
+          it is associated with the <code class="literal">dojo</code>
+          namespace. Core facilities usually do not appear in the Base level
+          namespace, and instead appear in a lower-level namespace such as
+          <code class="literal">dojo.fx</code> or <code class="literal">dojo.data</code>.</p><div class="comment_container" id="c_ch01_id35943118"></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="dijit">Dijit</h3></div></div></div><p id="ch01_id35943151">Describing Dojo as just a JavaScript standard library of sorts
+          would only be telling you a small part of its story; Dojo also packs
+          a fantastic library of widgets called <span class="emphasis"><em>Dijit</em></span>
+          (short for "Dojo widget") that is ready to use out of the box and
+          often doesn't require you to write any JavaScript at all. Dijits
+          conform to commonly accepted accessibility standards such as
+          ARIA<span id="CHP-1-FN-1"><sup>[<a href="#ftn.CHP-1-FN-1" class="footnote">7</a>]</sup></span> and come with preconfigured internationalization that
+          spans many common locales. Dijit is built directly upon Core
+          (providing a strong testament to Core's integrity), so whenever you
+          need a custom widget of your own devising, you'll be using the very
+          same building blocks that were used to create everything else in
+          Dijit. The widgets that you create with Dojo are ultra-portable and
+          can easily be shared or deployed onto any web server or often even
+          run locally without a web server at all via the
+          <span class="emphasis"><em>file://</em></span> protocol.</p><div class="comment_container" id="c_ch01_id35943151"></div><p id="ch01_id35943180">Plugging a dijit into a page is as easy as specifying a
+          special <code class="literal">dojoType</code> tag inside of an
+          ordinary HTML tag—a dream come true for layout designers and users
+          who aren't interested in doing a lot (or any) JavaScript
+          programming. In fact, a key benefit of using Dijit for application
+          developers is that it allows you to achieve incredibly rich
+          functionality without having to dig into tedious implementation
+          details. Even if you're more of a library-writing type or a custom
+          widget developer, following Dijit's style and conventions ensures
+          that your widgets will be portable and easy to use—essentials for
+          any reusable software component.</p><div class="comment_container" id="c_ch01_id35943180"></div><p id="ch01_id35943194">The Dijit battery can be roughly divided into general-purpose
+          application widgets like progress bars and modal dialogs, layout
+          widgets like tab containers and accordion panes, and form widgets
+          that provide super-enhanced versions of old hats like buttons and
+          various input elements.</p><div class="comment_container" id="c_ch01_id35943194"></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="dojox">DojoX</h3></div></div></div><p id="ch01_id35943208">DojoX is a collection of subprojects that officially stands
+          for "Dojo Extensions," although it is often called "Extensions and
+          Experimental." The "extensions" subprojects in DojoX accounts for
+          stable widgets and resources that while extremely valuable just
+          don't fit nicely into Core or Dijit; the "experimental" subprojects
+          account for widgets that are highly volatile and in more of an
+          incubation stage.<a id="IDX-CHP-1-0035" class="indexterm"></a><a id="IDX-CHP-1-0036" class="indexterm"></a><a id="IDX-CHP-1-0037" class="indexterm"></a><a id="IDX-CHP-1-0038" class="indexterm"></a><a id="IDX-CHP-1-0039" class="indexterm"></a><a id="IDX-CHP-1-0040" class="indexterm"></a><a id="IDX-CHP-1-0041" class="indexterm"></a><a id="IDX-CHP-1-0042" class="indexterm"></a><a id="IDX-CHP-1-0043" class="indexterm"></a><a id="IDX-CHP-1-0044" class="indexterm"></a><a id="IDX-CHP-1-0045" class="indexterm"></a><a id="IDX-CHP-1-0046" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943208"></div><p id="ch01_id35943324">Each DojoX subproject is required to come with a
+          <span class="emphasis"><em>README</em></span> file that contains a synopsis of its
+          status. Although DojoX subprojects strive to meet accessibility and
+          internationalization initiatives consistent with Dijit, it is not
+          generally the case that they're always quite that refined. Be that
+          as it may, lots of heavy machinery for real world applications lives
+          in DojoX, including the grid widget, data converters for common web
+          services, etc. DojoX also provides a sandbox and incubator for fresh
+          ideas, while simultaneously ensuring that the high standards and
+          stable APIs for resources in Core and Dijit are not compromised. In
+          that regard, DojoX strikes a sensitive balance for critical issues
+          central to any community-supported OSS project.<a id="IDX-CHP-1-0047" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943324"></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="util">Util</h3></div></div></div><p id="ch01_id35943353">Util is a collection of Dojo utilities that includes a
+          JavaScript unit-testing framework and build tools for creating
+          custom versions of Dojo for production settings. The unit-testing
+          framework, DOH,<span id="CHP-1-FN-2"><sup>[<a href="#ftn.CHP-1-FN-2" class="footnote">8</a>]</sup></span> does not have a specific coupling to Dojo and provides
+          a simple set of constructs that can be used to automate quality
+          assurance on any JavaScript code. After all, you do want to
+          implement well-defined, systematic tests for your JavaScript code,
+          don't you?</p><div class="comment_container" id="c_ch01_id35943353"></div><p id="ch01_id35943368">The essence of the build tools is that they shrink the size of
+          your code and can aggregate into a set of layers, where each layer
+          is nothing more than a collection of other JavaScript files. The
+          compression is accomplished via ShrinkSafe, a patched version of
+          Mozilla's powerful Rhino JavaScript engine that compresses
+          JavaScript code without mangling public APIs, and the aggregation is
+          accomplished with a collection of custom scripts that are also run
+          by Rhino. Other auxiliary components in Util do things like inline
+          HTML template strings (more on this when Dijit is formally
+          introduced in <a class="xref" href="dijit_overview.html" title="Chapter 11. Dijit Overview">Chapter 11, <i>Dijit Overview</i></a>) into JavaScript
+          files—another trick for reducing latency.<a id="IDX-CHP-1-0048" class="indexterm"></a><a id="IDX-CHP-1-0049" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943368"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35943405">While reading this section, you may understand what build
+          tools do for you, but it may not be clear why you'd want them. In
+          short, build tools that consolidate and minify your JavaScript
+          code <span class="emphasis"><em>significantly</em></span> reduce the HTTP latency,
+          which yields a serious performance advantage when it comes time
+          for production.</p><div class="comment_container" id="c_ch01_id35943405"></div></div><p id="ch01_id35943415">Like DOH, ShrinkSafe may be used independently of Dojo, and
+          for production settings there is almost never a good reason not to
+          use it, given that it is not uncommon for it to reduce the
+          JavaScript footprint by 50% or more. The performance difference
+          between loading many large JavaScript files via a series of
+          synchronous requests and retrieving one or two compressed JavaScript
+          files can be quite staggering.</p><div class="comment_container" id="c_ch01_id35943415"></div></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="prepping_for_development">Prepping for Development</h2></div></div></div><p id="ch01_id35943432">You don't need any fancy tools nor do you have to be able to
+          configure a beast of a web server like Apache to learn how to develop
+          with Dojo. In fact, very few examples in this entire book require you
+          to interact with a web server at all. Most resources will be resolved
+          via relative paths on your local machine or they will be cross-domain
+          loaded, so for the most part, it's just you, your favorite text
+          editor, and your web browser.<a id="IDX-CHP-1-0050" class="indexterm"></a><a id="IDX-CHP-1-0051" class="indexterm"></a><a id="IDX-CHP-1-0052" class="indexterm"></a><a id="IDX-CHP-1-0053" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943432"></div><p id="ch01_id35943477">There are three primary ways you can download Dojo and prep for
+          development: downloading an official release, checking out the latest
+          and greatest from Subversion, and using a cross-domain (XDomain) build
+          that's available from AOL's Content Developer Network (CDN). Let's
+          walk through each of these options. Although downloading an official
+          release to your local machine may be the most typical approach, there
+          can be specific value in the other approaches as well.<a id="IDX-CHP-1-0054" class="indexterm"></a><a id="IDX-CHP-1-0055" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943477"></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="getting_dojo">Getting Dojo</h3></div></div></div><p id="ch01_id35943508">There are three primary ways you can use Dojo: downloading an
+          official release to your local environment, checking out a copy from
+          Subversion to your local environment, and using an XDomain build
+          from AOL's CDN. This section walks you through each of these
+          options.</p><div class="comment_container" id="c_ch01_id35943508"></div><div class="sect3" lang="en" xml:lang="en"><div class="titlepage"><div><div><h4 class="title" id="downloading_an_official_release">Downloading an official release</h4></div></div></div><p id="ch01_id35943521">Downloading the latest official Dojo release is by far the
+          most traditional way to prep for development. An "official"
+          release is really nothing more than a tagged, blessed snapshot
+          from the Subversion repository that has been well-tested and that
+          comes with some helpful release notes. You can find official
+          releases of the toolkit at <a class="ulink" href="http://dojotoolkit.org/downloads" target="_top">http://dojotoolkit.org/downloads</a>; the only notable
+          caveat when downloading an official release is that it does not
+          come packaged with the build tools. To retrieve the build tools,
+          you either need to use Subversion or download a source release,
+          which you can find at <a class="ulink" href="http://download.dojotoolkit.org/" target="_top">http://download.dojotoolkit.org/</a>.<a id="IDX-CHP-1-0056" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943521"></div><p id="ch01_id35943546">When you uncompress the downloaded archive, you'll find it
+          expands into a folder that has the general form <code class="filename">dojo-release-x.y.z</code>, where, "x," "y,"
+          and "z" correspond to the major, minor, and patch numbers for a
+          particular release. To keep your setup and URLs as generic as
+          possible, you may want to rename the folder in place so that it is
+          simply called <code class="filename">js</code> (short for
+          JavaScript). Other options include using server directives to
+          alias <code class="filename">dojo-release-x.y.z</code> to
+          <code class="filename">js</code>, or using symbolic links
+          on Linux and Unix environments. In any case, this extra effort has
+          the advantage of allowing you to use a relative path such as
+          <code class="filename">www/js</code> to point to Dojo
+          instead of a more brittle path such as <code class="filename">www/dojo-release-x.y.z</code>.<a id="IDX-CHP-1-0057" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943546"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35943598">Creating a symbolic link is easy. On Linux, Mac OS X, or
+          Unix platforms, simply execute a command of the following form
+          from a terminal: <code class="literal">ln -s
+              dojo-release-x.y.z js</code>. You can read more about
+          symbolic links by reading the man page via the <code class="literal">man ls</code> command.</p><div class="comment_container" id="c_ch01_id35943598"></div></div><p id="ch01_id35943615">Once you have downloaded Dojo, you might initially be
+          surprised that it's all not in one JavaScript file, but don't
+          worry. A quick look at what unpacks reveals that the code base is
+          broken into the same architectural components that we just talked
+          about in the previous section—Base
+          (<span class="emphasis"><em>dojo/dojo.js</em></span> ), Core
+          (<span class="emphasis"><em>dojo</em></span> ), Dijit (<span class="emphasis"><em>dijit</em></span> ),
+          DojoX (<code class="filename">dojox</code>), and Util
+          (<code class="filename">util</code>). While we'll
+          systematically work through all of this, the only action that's
+          required to get Base into your page is to provide the relative
+          path to the <code class="filename">dojo.js</code> file
+          (located at <code class="filename">dojo/dojo.js</code> via
+          a <code class="literal">SCRIPT</code> tag in your page just
+          like any other JavaScript file). Easy as pie.</p><div class="comment_container" id="c_ch01_id35943615"></div></div><div class="sect3" lang="en" xml:lang="en"><div class="titlepage"><div><div><h4 class="title" id="downloading_from_subversion">Downloading from Subversion</h4></div></div></div><p id="ch01_id35943672">The latest official build is probably what you want to use
+          for development. Still, if you're interested in maintaining a copy
+          of the Subversion repository to stay up to date with the bleeding
+          edge, then read this section closely; it walks you through the
+          steps involved in checking out Dojo from Subversion and getting a
+          convenient development environment set up. Developing against the
+          Subversion trunk might be helpful if you want to keep a close eye
+          on a bug that's being fixed, if you want to try out a new feature
+          that's in the works, or if you're a first-class hacker who just
+          can't rest easy unless you're always in the know with the
+          latest.</p><div class="comment_container" id="c_ch01_id35943672"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35943679">For the authoritative reference on Subversion, take a look
+          at <span class="emphasis"><em>Version Control with Subversion</em></span>, which
+          is available at <a class="ulink" href="http://svnbook.red-bean.com/" target="_top">http://svnbook.red-bean.com/</a>.</p><div class="comment_container" id="c_ch01_id35943679"></div></div><p id="ch01_id35943692">Dojo's Subversion repository is located at <a class="ulink" href="http://svn.dojotoolkit.org/src/" target="_top">http://svn.dojotoolkit.org/src/</a>, so start there if
+          you're interested in skimming some code in your web browser.
+          You'll want to check out the code from the externals view that can
+          be accessed at <a class="ulink" href="http://svn.dojotoolkit.org/src/view/anon/all/trunk" target="_top">http://svn.dojotoolkit.org/src/view/anon/all/trunk</a>,
+          however, which keeps things simple by grabbing the entire toolkit
+          in one fell swoop.</p><div class="comment_container" id="c_ch01_id35943692"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35943711">The Subversion externals property provides a way of
+          constructing a working copy that would normally require multiple
+          separate checkouts. You can read more about it at <a class="ulink" href="http://svnbook.red-bean.com/en/1.0/ch07s03.html" target="_top">http://svnbook.red-bean.com/en/1.0/ch07s03.html</a>.</p><div class="comment_container" id="c_ch01_id35943711"></div></div><p id="ch01_id35943721">In order to check out the code, execute the following
+          command from a terminal. (The remainder of this section assumes
+          you've performed the checkout from inside of a folder named
+          <span class="emphasis"><em>www</em></span>.)</p><div class="comment_container" id="c_ch01_id35943721"></div><pre class="programlisting" id="I_programlisting1_d1e1456">svn co http://svn.dojotoolkit.org/src/view/anon/all/trunk ./svn</pre><div class="comment_container" id="c_I_programlisting1_d1e1456"></div><p id="ch01_id35943737">Just as if you had downloaded an official release, you'll
+          have an <span class="emphasis"><em>svn</em></span> folder that contains subfolders
+          corresponding to each major component of the toolkit
+          (<span class="emphasis"><em>dojo</em></span>, <span class="emphasis"><em>dijit</em></span>,
+          <span class="emphasis"><em>dojox</em></span>, and <span class="emphasis"><em>util</em></span> ) when
+          your Subversion checkout completes. However, your <code class="filename">util</code> folder will contain the build
+          scripts (and possibly a few other things auxiliary tools used to
+          support the toolkit). We'll delay elaboration on Subversion
+          details, but do note that it is not difficult to have multiple
+          versions of Dojo around—say, the latest official release, a
+          nightly build, and an actual checkout of the repository—and use a
+          server directive or other means of toggling between them all,
+          depending on which version you'd like to use at any given
+          time.</p><div class="comment_container" id="c_ch01_id35943737"></div></div><div class="sect3" lang="en" xml:lang="en"><div class="titlepage"><div><div><h4 class="title" id="aol_apostrophy_s_cdn">AOL's CDN</h4></div></div></div><p id="ch01_id35943772">AOL hosts a cross-domain version of Dojo on their Content
+          Delivery Network (AOL CDN) and makes it available for you to use
+          by simply providing a few configuration parameters and including a
+          <code class="literal">SCRIPT</code> tag that points to the
+          XDomain build of Dojo on AOL's CDN server. Because it's just that
+          easy, all of the examples in this book use the XDomain build so
+          there is minimal fuss when you are trying things out.<a id="IDX-CHP-1-0058" class="indexterm"></a><a id="IDX-CHP-1-0059" class="indexterm"></a><a id="IDX-CHP-1-0060" class="indexterm"></a><a id="IDX-CHP-1-0061" class="indexterm"></a><a id="IDX-CHP-1-0062" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943772"></div><p id="ch01_id35943829">As alluded to in the previous two sections, you normally
+          load Dojo by pointing to your own <span class="emphasis"><em>dojo.js</em></span>
+          file; specify a relative path like this one:</p><div class="comment_container" id="c_ch01_id35943829"></div><pre class="programlisting" id="I_programlisting1_d1e1515">&lt;script
+    type="text/javascript"
+    src="www/js/dojo/dojo.js"&gt;
+&lt;/script&gt;</pre><div class="comment_container" id="c_I_programlisting1_d1e1515"></div><p id="ch01_id35943845">Using AOL's XDomain build is just as easy: simply change the
+          <code class="literal">src</code> reference and let Dojo (and
+          AOL) take care of the rest. The following <code class="literal">SCRIPT</code> tag illustrates this process for
+          Dojo 1.1:</p><div class="comment_container" id="c_ch01_id35943845"></div><pre class="programlisting" id="I_programlisting1_d1e1525">&lt;script
+    type="text/javascript"
+    src="http://o.aolcdn.com/dojo/<strong class="userinput"><code>1.1</code></strong>/dojo/<strong class="userinput"><code>dojo.xd.js</code></strong>"&gt;
+&lt;/script&gt;</pre><div class="comment_container" id="c_I_programlisting1_d1e1525"></div><p id="ch01_id35943879">The <span class="emphasis"><em>dojo.xd.js</em></span> was emphasized in the
+          code because if you accidentally specify
+          <span class="emphasis"><em>dojo.js</em></span>, you'll probably get an error instead
+          of the Dojo goodness you were looking for. It is also noteworthy
+          that the <span class="emphasis"><em>1.1</em></span> in the <code class="filename">src</code> path references the latest bug
+          release for the said version. You could request a specific bug fix
+          release by asking for, say, <code class="filename">1.1.0</code> or <code class="filename">1.1.1</code>. You may want to bookmark <a class="ulink" href="http://dev.aol.com/dojo" target="_top">http://dev.aol.com/dojo</a> because it's the ultimate
+          authority on what versions of Dojo are available via the
+          CDN.</p><div class="comment_container" id="c_ch01_id35943879"></div></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="debugging_with_firebug">Debugging with Firebug</h3></div></div></div><p id="ch01_id35943926">If you've done even a trivial amount of web development, you
+          already know that debugging can sometimes be quite painful,
+          especially when it involves obscure differences between browsers or
+          deviations from the W3C standards. Unfortunately, throwing in a
+          toolkit that wields a lot of power and complexity of its own can
+          sometimes make debugging even tougher, and this might especially be
+          the case for the JavaScript realm that involves the dynamism of
+          closures, dynamic typing, and inconvenient ways of producing debug
+          messages with alert boxes. And then there was
+          <span class="emphasis"><em>Firebug</em></span>, an amazing Firefox extension that made
+          debugging and web development a lot easier.<a id="IDX-CHP-1-0063" class="indexterm"></a><a id="IDX-CHP-1-0064" class="indexterm"></a><a id="IDX-CHP-1-0065" class="indexterm"></a><a id="IDX-CHP-1-0066" class="indexterm"></a><a id="IDX-CHP-1-0067" class="indexterm"></a><a id="IDX-CHP-1-0068" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35943926"></div><p id="ch01_id35943993">As a rule of thumb, you should strongly consider developing in
+          Firefox, because Firebug in and of itself is nothing short of
+          incredible in terms of speeding up the development cycle. You can
+          inspect/manipulate anything in the DOM (including style) in real
+          time, log events to the Firebug console, and get error information
+          that's often specific enough to identify your actual problem.
+          (Compare that to a brilliant alert box that asks, "Would you like to
+          debug?")</p><div class="comment_container" id="c_ch01_id35943993"></div><p id="ch01_id35944000">Of course, do remember to verify that your design is truly
+          cross-platform by frequently sanity testing in IE and other
+          browsers. Although Dojo itself goes to great lengths to work around
+          browser quirks, it is still possible that anomalies can occur—and
+          the sooner you discover these, the better.</p><div class="comment_container" id="c_ch01_id35944000"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35944013">Firebug is an amazing tool that's hard to live without once
+          you've experienced it. You can save yourself a lot of time if you
+          develop in Firefox and use Firebug for all that it's worth.
+          However, it's best to frequently test in IE (say, at least every
+          30 minutes) to catch any hard-to-find anomalies that might creep
+          into your application. For example, if you leave a trailing comma
+          after the last key/value pair in a JavaScript associative array,
+          Firefox forgives you, but IE does not . . . and the error message
+          you get back from IE isn't very helpful either.</p><div class="comment_container" id="c_ch01_id35944013"></div><p id="ch01_id35944022">By far the most common function you'll probably use from
+          Firebug is <code class="literal">console.log</code>, which
+          allows you to print information to the Firebug console from inside
+          of your JavaScript. (We're all tired of alert boxes by now,
+          right?)</p><div class="comment_container" id="c_ch01_id35944022"></div></div><p id="ch01_id35944034">Be advised that Dojo aims to integrate as tightly with Firebug
+          as possible, so it comes packaged with Firebug Lite. Thus, even if
+          you must develop in another browser, functions such as <code class="literal">console.log</code> are always available to you if
+          you want them.<a id="IDX-CHP-1-0069" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35944034"></div><p id="ch01_id35944051">You can download Firefox and Firebug from <a class="ulink" href="http://www.getfirefox.com" target="_top">http://www.getfirefox.com</a> and <a class="ulink" href="http://www.getfirebug.com" target="_top">http://www.getfirebug.com</a>, respectively. <a class="xref" href="a_firebug_primer.html" title="Appendix A. A Firebug Primer">Appendix A, <i>A Firebug Primer</i></a> contains a Firebug tutorial that you
+          may find helpful for development.</p><div class="comment_container" id="c_ch01_id35944051"></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="browser_security_settings_for_running">Browser Security Settings for Running Dojo Locally</h3></div></div></div><p id="ch01_id35944078">Most of the examples in this book are designed to loaded from
+          a locale <span class="emphasis"><em>file://</em></span> protocol, which generally
+          works fine. However, it appears that users of Firefox 3
+          <span class="emphasis"><em>may</em></span> need to make one small adjustment to load
+          Dojo locally:<a id="IDX-CHP-1-0070" class="indexterm"></a><a id="IDX-CHP-1-0071" class="indexterm"></a><a id="IDX-CHP-1-0072" class="indexterm"></a><a id="IDX-CHP-1-0073" class="indexterm"></a><a id="IDX-CHP-1-0074" class="indexterm"></a><a id="IDX-CHP-1-0075" class="indexterm"></a><a id="IDX-CHP-1-0076" class="indexterm"></a><a id="IDX-CHP-1-0077" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35944078"></div><div class="orderedlist" id="ch01_id35944161"><ol type="1"><li><p id="ch01_id35944171">In the address bar, type <code class="literal">about:config</code> and press the Enter
+          key.</p><div class="comment_container" id="c_ch01_id35944171"></div></li><li><p id="ch01_id35944183">Change the value of <code class="literal">security.fileuri.origin_policy</code> to
+          <code class="literal">3</code> or greater.</p><div class="comment_container" id="c_ch01_id35944183"></div></li></ol></div><p id="ch01_id35944200">You can read more about this issue at <a class="ulink" href="http://kb.mozillazine.org/Security.fileuri.origin_policy" target="_top">http://kb.mozillazine.org/Security.fileuri.origin_policy</a>.</p><div class="comment_container" id="c_ch01_id35944200"></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="lightweight_server_responses">Lightweight Server Responses</h3></div></div></div><p id="ch01_id35944217">Almost all of the content in this book can be demonstrated
+          without a web server. To adequately demonstrate a <span class="emphasis"><em>select
+              few</em></span> pieces of the toolkit, however, it is helpful to
+          serve up some dynamic content coming from a server. When these times
+          arise, we'll use CherryPy (version 3.1+), an extremely easy-to-use
+          web server that's written in Python. You can download and read all
+          about CherryPy at <a class="ulink" href="http://cherrypy.org" target="_top">http://cherrypy.org</a>, but
+          don't fret, you won't be derailed on your Dojo learning efforts by
+          getting all bogged down with the details of having to learn about a
+          new web server.</p><div class="comment_container" id="c_ch01_id35944217"></div><p id="ch01_id35944233">Installing CherryPy is as simple as downloading it and
+          following a few short instructions in the <code class="filename">README</code> file. CherryPy installs just like
+          any other Python module, so there isn't an exposed installation
+          directory, per se. Unlike other, heftier server-side technologies,
+          CherryPy just becomes readily available for you to use whenever you
+          include it via an <code class="literal">import</code>
+          statement like other Python modules. In fact, a CherryPy application
+          is nothing more than a standalone Python application that is running
+          its own multithreaded web server; thus, actually executing a
+          "server-side script" is as simple as running a single command in a
+          terminal.<a id="IDX-CHP-1-0078" class="indexterm"></a><a id="IDX-CHP-1-0079" class="indexterm"></a><a id="IDX-CHP-1-0080" class="indexterm"></a><a id="IDX-CHP-1-0081" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35944233"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35944293">All of the (very few) examples involving the need to serve
+          up some dynamic content or explicitly get a response for the
+          server require nothing more than a single command in a terminal,
+          so don't be scared away—these server-side examples
+          <span class="emphasis"><em>are</em></span> for the faint of heart! Of course, you
+          are more than welcome to skip any examples involving server-side
+          technologies completely; a thorough discussion of what is
+          happening will always accompany them.</p><div class="comment_container" id="c_ch01_id35944293"></div></div><p id="ch01_id35944307">For example, if you were asked to invoke the following simple
+          application stored in a file called <span class="emphasis"><em>hello.py</em></span>,
+          you'd do nothing more than type <code class="literal">python
+              hello.py</code> on the command line. That's all that it takes to
+          have CherryPy start up and listen on port 8080 for incoming
+          requests. Having already installed CherryPy, the <code class="literal">import cherrypy</code> statement shown in <a class="xref" href="toolkit_overview.html#a_very_simple_cherrypy_application" title="Example 1.1. A very simple CherryPy application">Example 1.1, “A very simple CherryPy application”</a> locates it and makes
+          it available for use.</p><div class="comment_container" id="c_ch01_id35944307"></div><div class="example" id="a_very_simple_cherrypy_application"><p class="title"><b>Example 1.1. A very simple CherryPy application</b></p><div class="example-contents"><pre class="programlisting" id="ch01_id35944340">1 import cherrypy
+2
+3 class Content:
+4
+5     @cherrypy.expose
+6     def index(self):
+7         return "Hello"
+8
+9     @cherrypy.expose
+10     def greet(self, name=None):
+11         return "Hello "+name
+12
+13  cherrypy.quickstart(Content(  ))</pre><div class="comment_container" id="c_ch01_id35944340"></div></div></div><br class="example-break"><p id="ch01_id35944348">For <a class="xref" href="toolkit_overview.html#a_very_simple_cherrypy_application" title="Example 1.1. A very simple CherryPy application">Example 1.1, “A very simple CherryPy application”</a>, if
+          you navigate to <a class="ulink" href="http://localhost:8080/" target="_top">http://localhost:8080/</a> in your
+          web browser, you would access the <code class="literal">index</code> method (lines 6–7) and get back the
+          response "Hello", whereas if you navigate to <a class="ulink" href="http://localhost:8080/greet?name=Dojo" target="_top">http://localhost:8080/greet?name=Dojo</a>, you'd access
+          the <code class="literal">greet</code> method (lines 10–11),
+          which processes the <code class="literal">name</code> query
+          string parameter and gives back the response "Hello Dojo". That's
+          the general pattern, and given how inherently readable Python code
+          is, it can't get much easier than that.</p><div class="comment_container" id="c_ch01_id35944348"></div><p id="ch01_id35944385">While you'll never need to write or understand Python code to
+          this book, the previous walk-through was included just to show you
+          how quick and easy it is to do with CherryPy and Python in case you
+          ever need or want create dynamic content of your own.
+          <span class="emphasis"><em>Learning Python</em></span> by Mark Lutz (O'Reilly) is a
+          great reference on Python if you find yourself ever needing to work
+          up more complex Python code. Python's official web presence at
+          <a class="ulink" href="http://www.python.org" target="_top">http://www.python.org</a> and CherryPy's web site
+          at <a class="ulink" href="http://www.cherrypy.org" target="_top">http://www.cherrypy.org</a> have great
+          documentation as well.</p><div class="comment_container" id="c_ch01_id35944385"></div></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="terminology">Terminology</h2></div></div></div><p id="ch01_id35944415">It will be helpful for us to take just a moment and clarify some
+          of the terms that we'll use in discussions throughout the book. A
+          precise explanation of JavaScript's mechanics packs a lot of lingo
+          that requires precise terminology, and the lines only get blurrier
+          when you start building a powerful toolkit on top of it—not to mention
+          a toolkit that does things like simulate classes for a language in
+          which proper classes from an object-oriented context does not
+          exist.<a id="IDX-CHP-1-0082" class="indexterm"></a><a id="IDX-CHP-1-0083" class="indexterm"></a><a id="IDX-CHP-1-0084" class="indexterm"></a><a id="IDX-CHP-1-0085" class="indexterm"></a><a id="IDX-CHP-1-0086" class="indexterm"></a><a id="IDX-CHP-1-0087" class="indexterm"></a><a id="IDX-CHP-1-0088" class="indexterm"></a><a id="IDX-CHP-1-0089" class="indexterm"></a><a id="IDX-CHP-1-0090" class="indexterm"></a><a id="IDX-CHP-1-0091" class="indexterm"></a><a id="IDX-CHP-1-0092" class="indexterm"></a><a id="IDX-CHP-1-0093" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35944415"></div><p id="ch01_id35944523">Hopefully, you'll find the following list of terms helpful as we
+          progress through some of these murky waters:</p><div class="comment_container" id="c_ch01_id35944523"></div><div class="variablelist"><dl><dt><span class="term">
+          <span class="emphasis"><em>Toolkit</em></span>
+        </span></dt><dd><p id="ch01_id35944540">A <span class="emphasis"><em>toolkit</em></span> is simply a collection of
+          tools. It just so happens that toolkits in the computer
+          programming realm are frequently used within the context of user
+          interface design. Dojo is most accurately defined as a toolkit
+          because it's more than just a library of supporting code that
+          provides a set of related functions and abstractions; it also
+          provides items such as deployment utilities, testing tools, and
+          a packaging system. It's easy to get wrapped around the axle on
+          library versus framework versus toolkit, and so forth, but Dojo
+          has been dubbed a toolkit, so let's go with it.<a id="IDX-CHP-1-0094" class="indexterm"></a><a id="IDX-CHP-1-0095" class="indexterm"></a><a id="IDX-CHP-1-0096" class="indexterm"></a><a id="IDX-CHP-1-0097" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Module</em></span>
+        </span></dt><dd><p id="ch01_id35944599">Physically, a Dojo <span class="emphasis"><em>module</em></span> is nothing
+          more than a JavaScript file or a directory containing a cohesive
+          collection of JavaScript files. As it turns out, this top-level
+          directory also designates a <span class="emphasis"><em>namespace</em></span> for
+          the code it contains. In a logical sense, modules in Dojo are
+          similar to the concept of packages in other programming
+          languages in that they are used to compartmentalize related
+          software components. Do note, however, that while Dojo's
+          <span class="emphasis"><em>packaging system</em></span> refers to the actual
+          mechanism that performs tasks such as determining and fetching
+          dependencies, Dojo modules themselves are not called
+          "packages."</p></dd><dt><span class="term">
+          <span class="emphasis"><em>Resource</em></span>
+        </span></dt><dd><p id="ch01_id35944631">When it becomes necessary to split a Dojo module into
+          multiple files, or when a module consists of only a single
+          JavaScript file, each JavaScript file is referred to a
+          <span class="emphasis"><em>resource</em></span>. Although a resource could
+          strictly be used to logically organize the various abstractions
+          that are associated with a module, there is also the
+          consideration of minimizing the size of a JavaScript file. The
+          trade-off essentially amounts to minimizing file size so that
+          you don't download superfluous code that isn't needed, while
+          also not downloading too many small files—all of which are
+          synchronous requests and incur the overhead of communicating
+          back to the web server (although using the build tools to create
+          layers can make this overhead somewhat of a moot point).</p></dd><dt><span class="term">
+          <span class="emphasis"><em>Namespace</em></span>
+        </span></dt><dd><p id="ch01_id35944652">Physically, Dojo <span class="emphasis"><em>namespaces</em></span> map to
+          the same filesystem hierarchy that specifies modules and
+          resources; logically, the concept of a namespace prevents
+          identically named modules and resources from clashing. Note that
+          while namespaces themselves are neither modules nor resources,
+          the semantic idea behind what they represent does directly map
+          to modules and resources. It is also worthwhile to note that
+          Dojo preserves the global namespace of a page, and any modules
+          you create with Dojo do not pollute the global namespace if
+          implemented properly. Recall that everything in Base fits into
+          the top-level <code class="literal">dojo</code>
+          namespace.</p></dd><dt><span class="term">
+          <span class="emphasis"><em>First-class</em></span>
+        </span></dt><dd><p id="ch01_id35944677">In computer programming, something is
+          <span class="emphasis"><em>first-class</em></span> when it can be passed around
+          without restrictions compared to other entities in the same
+          language. For example, in many programming languages, you cannot
+          pass around functions in the same way that you can pass around
+          other data types such as number or string values. In this
+          particular context, functions would not be considered
+          first-class objects. In our discussions, the most common way
+          this term will be used is to highlight the fact that functions
+          are first-class objects in JavaScript. As we'll see, operations
+          such as assigning functions directly to variables and/or placing
+          them in associative arrays are fundamental to many Dojo design
+          patterns.<a id="IDX-CHP-1-0098" class="indexterm"></a><a id="IDX-CHP-1-0099" class="indexterm"></a><a id="IDX-CHP-1-0100" class="indexterm"></a><a id="IDX-CHP-1-0101" class="indexterm"></a><a id="IDX-CHP-1-0102" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Function</em></span>
+        </span></dt><dd><p id="ch01_id35944746">A <span class="emphasis"><em>function</em></span> is a code snippet that is
+          defined once, but can be executed multiple times. In JavaScript,
+          functions are first-class objects that can be passed around just
+          like any other variable. A <span class="emphasis"><em>constructor
+              function</em></span> is a function that is used specially via the
+          <code class="literal">new</code> operator, which creates a
+          new JavaScript <span class="emphasis"><em>Function object</em></span> and performs
+          initialization on it. Note that all JavaScript
+          <span class="emphasis"><em>objects</em></span> inherit from JavaScript's built-in
+          <code class="literal">Object</code> type and have a
+          <code class="literal">prototype</code> property that
+          conveys the basis for JavaScript's powerful inheritance
+          mechanism that is based on prototype-chaining. In Dojo parlance,
+          the term <span class="emphasis"><em>constructor</em></span> may also refer to the
+          anonymous function that maps to the <code class="literal">constructor</code> key in <code class="literal">dojo.declare</code> 's associative array and
+          that is used primarily for initializing
+          <span class="emphasis"><em>properties</em></span> of a Dojo
+          <span class="emphasis"><em>class</em></span>.<a id="IDX-CHP-1-0103" class="indexterm"></a><a id="IDX-CHP-1-0104" class="indexterm"></a><a id="IDX-CHP-1-0105" class="indexterm"></a><a id="IDX-CHP-1-0106" class="indexterm"></a><a id="IDX-CHP-1-0107" class="indexterm"></a><a id="IDX-CHP-1-0108" class="indexterm"></a><a id="IDX-CHP-1-0109" class="indexterm"></a><a id="IDX-CHP-1-0110" class="indexterm"></a><a id="IDX-CHP-1-0111" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Object</em></span>
+        </span></dt><dd><p id="ch01_id35944900">The most generic concept of an object in JavaScript refers
+          to a compound data type that can contain any number of named
+          <span class="emphasis"><em>properties</em></span>. For example, the simple
+          statement <code class="literal">var o = {}</code> uses
+          object literal syntax to create a JavaScript
+          <span class="emphasis"><em>object</em></span>. Because the term "object" gets
+          thrown around so much in this document, the term "associative
+          array" is sometimes used to describe contexts of key-value pairs
+          such as <code class="literal">{a : 1, b : 2}</code>
+          instead of calling them objects. Technically speaking,
+          JavaScript only has objects and no classes—even though Dojo
+          simulates the notion of a class via the <code class="literal">dojo.declare</code> function, a special
+          function that is used for this express purpose.<a id="IDX-CHP-1-0112" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Property</em></span>
+        </span></dt><dd><p id="ch01_id35944955">In OOP, any piece of data stored in a class is commonly
+          called a <span class="emphasis"><em>property</em></span>. In our Dojo-specific
+          discussions, this term may refer to data contained in Function
+          objects or to data contained in Dojo classes that are defined by
+          <code class="literal">dojo.declare</code>.</p></dd><dt><span class="term">
+          <span class="emphasis"><em>Method</em></span>
+        </span></dt><dd><p id="ch01_id35944982">A function that is a member of a class is commonly
+          referred to as a <span class="emphasis"><em>method</em></span> in broad OOP
+          contexts, JavaScript, and Dojo. Furthermore, in Dojo parlance,
+          the anonymous functions that appear in the <code class="literal">dojo.declare</code> statement are said to be
+          methods because <code class="literal">dojo.declare</code>
+          provides the basis for a class-based inheritance mechanism. In
+          general, you might just do well to think of a method as a
+          function defined on a class that is subsequently used through an
+          object context.<a id="IDX-CHP-1-0113" class="indexterm"></a><a id="IDX-CHP-1-0114" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Class</em></span>
+        </span></dt><dd><p id="ch01_id35945032">In Dojo, a declaration that represents a logical entity as
+          defined via the <code class="literal">dojo.declare</code>
+          function (a special function specifically used to simulate
+          classes and inheritance hierarchies) is referred to as a
+          <span class="emphasis"><em>class</em></span>. Again, this term is being used
+          loosely, because JavaScript does not support classes in the same
+          sense that they exist in languages like Java and C++.<a id="IDX-CHP-1-0115" class="indexterm"></a><a id="IDX-CHP-1-0116" class="indexterm"></a><a id="IDX-CHP-1-0117" class="indexterm"></a></p></dd><dt><span class="term">
+          <span class="emphasis"><em>Widget</em></span>
+        </span></dt><dd><p id="ch01_id35945088">A Dojo widget is a <span class="emphasis"><em>Function object</em></span>
+          that is created via a <code class="literal">dojo.declare</code> statement that includes
+          <code class="literal">dijit._Widget</code> (a base class
+          for all widgets) as an ancestor. Usually, a widget has a visible
+          appearance on the screen and logically bundles HTML, CSS,
+          JavaScript, and static resources into a unified entity that can
+          easily be manipulated, maintained, and ported around just like a
+          file.</p></dd></dl></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="bootstrapping">Bootstrapping</h2></div></div></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35945124">This section discusses some material that you may want to
+          initially skim over and come back to review once you feel well
+          acquainted with Dojo.<a id="IDX-CHP-1-0118" class="indexterm"></a><a id="IDX-CHP-1-0119" class="indexterm"></a><a id="IDX-CHP-1-0120" class="indexterm"></a><a id="IDX-CHP-1-0121" class="indexterm"></a><a id="IDX-CHP-1-0122" class="indexterm"></a><a id="IDX-CHP-1-0123" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35945124"></div></div><p id="ch01_id35945185">Before you can use Dojo at all, you have to somehow get it into
+          the page. Regardless of whether you install Dojo locally or load it
+          via AOL's CDN, you simply provide a <code class="literal">SCRIPT</code> tag that points to the file that
+          loads some JavaScript code, and then magic elves inside of your web
+          browser miraculously causes everything to "just work," right? Well,
+          not quite. Like most other things in computing, it all comes back to
+          pure and simple automation, and Dojo's bootstrap process is not
+          different.</p><div class="comment_container" id="c_ch01_id35945185"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35945202">The term "bootstrap" refers to the idea of "pulling yourself
+          up by your own bootstraps." In other words, it's the idea of getting
+          up and running without help from anywhere else. The notional idea of
+          Dojo bootstrapping itself is the same concept as your computer
+          "booting up" when you turn it on.</p><div class="comment_container" id="c_ch01_id35945202"></div></div><p id="ch01_id35945209">For the record, <a class="xref" href="toolkit_overview.html#a_minimalist_application_harness_exa" title="Example 1.2. A minimalist application harness example">Example 1.2, “A minimalist application harness example”</a> is the absolute
+          minimum effort that is generally required to get some XDomain Dojo
+          goodness into your HTML page. What's especially notable about loading
+          Dojo from the CDN is that <span class="emphasis"><em>less than 30KB of data comes
+              across the wire</em></span>. Chances are good that you'll use the
+          previous code block, or some variation of it, quite often. Save
+          yourself some typing by copying it into a template that you can
+          reuse.</p><div class="comment_container" id="c_ch01_id35945209"></div><div class="example" id="a_minimalist_application_harness_exa"><p class="title"><b>Example 1.2. A minimalist application harness example</b></p><div class="example-contents"><pre class="programlisting" id="ch01_id35945232">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Title Goes Here&lt;/title&gt;
+    &lt;!-- A lightweight style sheet that smoothes out look and feel across browsers --&gt;
+   &lt;link rel="stylesheet"  type="text/css"
+       href="http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css" /&gt;
+
+<span class="strong"><strong>    &lt;script</strong></span>
+<span class="strong"><strong>      type="text/javascript"</strong></span>
+<span class="strong"><strong>      src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js"&gt;</strong></span>
+<span class="strong"><strong>    &lt;/script&gt;</strong></span>
+
+<span class="strong"><strong>    &lt;script type="text/javascript"&gt;</strong></span>
+        <span class="bold"><strong>/* If needed, Dojo modules may be asynchronously requested into the page</strong></span>
+<span class="bold"><strong>here via dojo.require statements... */</strong></span>
+
+<span class="strong"><strong>        dojo.addOnLoad(function(  ) {</strong></span>
+
+<span class="strong"><strong>            /* Any content that depends upon dojo.require statements goes here... */</strong></span>
+
+<span class="strong"><strong>        });</strong></span>
+<span class="strong"><strong>    &lt;/script&gt;</strong></span>
+
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- ... --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre><div class="comment_container" id="c_ch01_id35945232"></div></div></div><br class="example-break"><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35945307">The <code class="literal">dojo.addOnLoad</code> function
+          accepts another function as its parameter. The examples in this book
+          generally supply this parameter with an anonymous function, although
+          you could opt to define a function like <code class="literal">var
+              init = function( ) { /*...*/}</code> and pass it in. Anonymous
+          functions and some of the reasons they are important were briefly
+          discussed in the Preface.</p><div class="comment_container" id="c_ch01_id35945307"></div></div><p id="ch01_id35945325">Two new constructs in the previous listing include the <code class="literal">dojo.require</code> statement and the <code class="literal">dojo.addOnLoad</code> block. The <code class="literal">dojo.require</code> statement is discussed at
+          length in the section "Managing Source Code with Modules" in <a class="xref" href="language_and_browser_utilities.html" title="Chapter 2. Language and Browser Utilities">Chapter 2, <i>Language and Browser Utilities</i></a>, but in a nutshell, it
+          pulls a named resource into the page for you to use the same way that
+          <code class="literal">import</code> works in Java or <code class="literal">#include</code> works in C programming. One
+          incredibly important aspect of <code class="literal">dojo.require</code> is that it performs
+          <span class="emphasis"><em>synchronous</em></span> loading for local installations of
+          the toolkit but acts <span class="emphasis"><em>asynchronously</em></span> if you are
+          doing XDomain loading. That distinction is especially important as it
+          relates to <code class="literal">dojo.addOnLoad</code>.</p><div class="comment_container" id="c_ch01_id35945325"></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="dojo.addonload">dojo.addOnLoad</h3></div></div></div><p id="ch01_id35945387">Because <code class="literal">dojo.require</code>
+          statements act asynchronously over XDomain loads, it is not
+          necessarily safe to immediately use resources you have requested via
+          <code class="literal">dojo.require</code> when the page
+          loads<span id="CHP-1-FN-3"><sup>[<a href="#ftn.CHP-1-FN-3" class="footnote">9</a>]</sup></span> because latency and other factors may (and usually
+          will) cause some delay. Then, when you try to reference a module
+          requested via <code class="literal">dojo.require</code> that
+          is not yet loaded, you get a nice error thrown at you and the entire
+          bootstrapping process most likely screeches to a halt. The technical
+          term for the situation in which the outcome is undefined because of
+          unpredictable timing constraints that compete with one another is
+          called a <span class="emphasis"><em>race condition</em></span>.</p><div class="comment_container" id="c_ch01_id35945387"></div><p id="ch01_id35817369">For the reasons just mentioned, using <code class="literal">dojo.addOnLoad</code> is a very good habit to get
+          into because it makes your page as portable as possible—whether or
+          not it is XDomain-loaded.</p><div class="comment_container" id="c_ch01_id35817369"></div><div class="warning"><h3 class="title">Warning</h3><p id="ch01_id35817383">A common mistake is not using <code class="literal">dojo.addOnLoad</code> to safely and portably
+          perform logic that should occur after the page loads and all
+          <code class="literal">dojo.require</code> statements have
+          been satisfied. The issue usually comes up when you have developed
+          locally and then start switching <code class="literal">SCRIPT</code> tags to do XDomain
+          loading.</p><div class="comment_container" id="c_ch01_id35817383"></div></div><p id="ch01_id35817406">Given that the previous code snippet uses XDomain loading,
+          there aren't any extra steps involving local installation, so it
+          really is a one-step process to bootstrap the entire toolkit from an
+          existing page.</p><div class="comment_container" id="c_ch01_id35817406"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35940852">Although widgets are not introduced for many more chapters,
+          another nuance of <code class="literal">addOnLoad</code>
+          that bears mentioning—because we're on the topic—is that <code class="literal">addOnLoad</code> does not fire until after
+          widgets have been parsed in the page (assuming <code class="literal">Dojo</code> has been configured to parse
+          widgets on page load).</p><div class="comment_container" id="c_ch01_id35940852"></div></div><p id="ch01_id35941625">While bootstrapping is synonymous with "loading a script" at a
+          high level, there's a lot more happening with that loading process
+          than meets the eye. From a bird's eye view, at least two basic
+          actions occur, though not necessarily in this exact order:</p><div class="comment_container" id="c_ch01_id35941625"></div><div class="variablelist"><dl><dt><span class="term">
+            <span class="emphasis"><em>Platform configuration</em></span>
+          </span></dt><dd><p id="ch01_id35941644">Takes into account any custom configuration options that
+          may have been specified through <code class="literal">djConfig</code>, an associative array that
+          must be defined before the <code class="literal">SCRIPT</code> tag that loads Dojo is
+          executed or as an attribute of the <code class="literal">SCRIPT</code> tag that loads Dojo. More
+          specifics on <code class="literal">djConfig</code> are
+          coming up later in this chapter.</p><p id="ch01_id35941671">Determines Dojo should be cross-domain loaded or loaded
+          locally. XDomain loading details happen transparently so long
+          as an Internet connection is available and the inclusion of
+          the XDomain loader was configured at build time. By default,
+          configuring for XDomain loading produces a
+          <span class="emphasis"><em>dojo.xd.js</em></span> (and other
+          <span class="emphasis"><em>*.xd.js</em></span> build artifacts), which provides
+          a replacement for standard
+          <span class="emphasis"><em>dojo.js</em></span>.<a id="IDX-CHP-1-0128" class="indexterm"></a></p><p id="ch01_id35941121">Based on the environment specified for the particular
+          build of Dojo (usually the browser but it could also be
+          another option such as Rhino or a mobile device), sets up any
+          environment-specific features. Even though you won't generally
+          need to perform browser-specific configuration when using the
+          default build of Dojo for the browser, Base still provides
+          data members like <code class="literal">dojo.isIE</code>
+          and <code class="literal">dojo.isFF</code> to expose the
+          underlying browser for those few times when you do need
+          them.</p><p id="ch01_id35941140">Performs browser-specific augmentation such as
+          establishing an <code class="literal">XMLHttpRequest</code> (XHR) object for
+          asynchronous calls using Dojo's various AJAX utilities.
+          Workarounds for browser incompatibilities such as normalizing
+          DOM events, standardizing a map of key codes, and extra
+          measures to minimize and prevent memory leaks are also
+          handled.<a id="IDX-CHP-1-0129" class="indexterm"></a></p></dd><dt><span class="term">
+            <span class="emphasis"><em>Namespace establishment and
+                loading</em></span>
+          </span></dt><dd><p id="ch01_id35941174">Establishes the <code class="literal">dojo</code>
+          namespace so that all of the utility provided by the toolkit
+          does not clobber any existing symbols in the page.</p><p id="ch01_id35941184">Loads the <code class="literal">dojo</code>
+          namespace with the various functions and symbols that
+          constitute Base.</p><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35941197">Although less frequently used than <code class="literal">dojo.addOnLoad</code>, <code class="literal">dojo.addOnUnload</code> is the preferred
+          vehicle for performing logic that should take place when the
+          page unloads.</p></div></dd></dl></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="configuration_with_djconfig">Configuration with djConfig</h3></div></div></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35941229">Much of the content in this section will make a lot more
+          sense once you've spent some time writing code, so don't feel the
+          need to dwell on it. It's here as a reference more than
+          anything.<a id="IDX-CHP-1-0130" class="indexterm"></a><a id="IDX-CHP-1-0131" class="indexterm"></a><a id="IDX-CHP-1-0132" class="indexterm"></a><a id="IDX-CHP-1-0133" class="indexterm"></a><a id="IDX-CHP-1-0134" class="indexterm"></a><a id="IDX-CHP-1-0135" class="indexterm"></a><a id="IDX-CHP-1-0136" class="indexterm"></a><a id="IDX-CHP-1-0137" class="indexterm"></a><a id="IDX-CHP-1-0138" class="indexterm"></a><a id="IDX-CHP-1-0139" class="indexterm"></a><a id="IDX-CHP-1-0140" class="indexterm"></a><a id="IDX-CHP-1-0141" class="indexterm"></a><a id="IDX-CHP-1-0142" class="indexterm"></a><a id="IDX-CHP-1-0143" class="indexterm"></a><a id="IDX-CHP-1-0144" class="indexterm"></a><a id="IDX-CHP-1-0145" class="indexterm"></a><a id="IDX-CHP-1-0146" class="indexterm"></a><a id="IDX-CHP-1-0147" class="indexterm"></a><a id="IDX-CHP-1-0148" class="indexterm"></a><a id="IDX-CHP-1-0149" class="indexterm"></a><a id="IDX-CHP-1-0150" class="indexterm"></a><a id="IDX-CHP-1-0151" class="indexterm"></a><a id="IDX-CHP-1-0152" class="indexterm"></a><a id="IDX-CHP-1-0153" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35941229"></div></div><p id="ch01_id35941459">Upcoming sections introduce <code class="literal">djConfig</code>, a configuration switch that you
+          can place in the <code class="literal">SCRIPT</code> tag that
+          bootstraps the toolkit (or define anytime before Dojo bootstraps) to
+          customize where it looks for resources, whether debugging tools
+          should be wired in, and so on.</p><div class="comment_container" id="c_ch01_id35941459"></div><p id="ch01_id35941475"><a class="xref" href="toolkit_overview.html#djconfig_configuration_switches" title="Table 1.1. djConfig configuration switches">Table 1.1, “djConfig configuration switches”</a> provides a
+          synopsis of the key/value pairs you can pass into it to configure
+          the bootstrapping process. (Some of the commentary may introduce
+          constructs that have not yet been introduced. For now, just skim
+          over those and come back to them whenever the occasion calls for
+          it.)</p><div class="comment_container" id="c_ch01_id35941475"></div><div class="warning"><h3 class="title">Warning</h3><p id="ch01_id35941488">Defining <code class="literal">djConfig</code> anytime
+          after the <code class="literal">SCRIPT</code> tag that loads
+          the toolkit executes has no effect.</p><div class="comment_container" id="c_ch01_id35941488"></div></div><div class="table" id="djconfig_configuration_switches"><p class="title"><b>Table 1.1. djConfig configuration switches</b></p><div class="table-contents"><table summary="djConfig configuration switches" border="1"><colgroup><col><col><col></colgroup><thead><tr><th align="left" valign="bottom">
+          <p id="ch01_id35941545">Key</p>
+      </th><th align="left" valign="bottom">
+          <p id="ch01_id35941555">Value type
+              (default value)</p>
+      </th><th align="left" valign="bottom">
+          <p id="ch01_id35941565">Comment</p>
+      </th></tr></thead><tfoot><tr><th colspan="3" align="left" valign="top">
+          <p id="ch01_id35941586">
+              <span id="CHP-1-TFN-1"><sup>[<a href="#ftn.CHP-1-TFN-1" class="footnote">a</a>]</sup></span>
+          </p>
+      </th></tr></tfoot><tbody><tr><td align="left" valign="top">
+          <p id="ch01_id35817426">
+              <code class="literal">afterOnLoad</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35817441">Boolean</p>
+          <p id="ch01_id35817444">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35817453">Used to facilitate
+              injecting Dojo into a page after it has already been loaded.
+              Useful for hacking on a page or developing widgets that are
+              necessarily lazy-loaded, i.e., for social networking apps,
+              etc.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35817469">
+              <code class="literal">baseUrl</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940309">String</p>
+          <p id="ch01_id35940312">(undefined)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940321">Technically, this
+              parameter allows you to redefine the root level path of the
+              toolkit for a local or an XDomain load, usually for the
+              purpose of resolving dependencies such as custom modules. In
+              practice, however, it is almost exclusively used to resolve
+              local modules when bootstrapping over
+              XDomain.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940338">
+              <code class="literal">cacheBust</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940352">String|Date</p>
+          <p id="ch01_id35940355">(undefined)</p></td><td align="left" valign="top"><p id="ch01_id35940363">In the case of a
+          <code class="literal">String</code> value, appends the
+          value provided to requests for modules so that previous
+          version of the page that is cached locally will be
+          overridden. Typically, this value will be a random string of
+          characters that you generate yourself or a unique identifier
+          for your application version that would prevent nasty bugs
+          from surfacing that may be caused by older versions of
+          modules.</p> <p id="ch01_id35940376">During the development cycle, you
+          might provide a <code class="literal">Date</code>
+          value such as <code class="literal">(new Date(
+              )).getTime( )</code>, which guarantees a new value each
+          time the page loads and prevents annoying caching
+          problems.</p></td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940399">
+              <code class="literal">debugAtAllCosts</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940413">Boolean</p>
+          <p id="ch01_id35940417">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940426">Usually provides more
+              specific debugging information at the cost of performance.
+              You might specify this value to better track down the line
+              number where an error occurred if you are told that an error
+              originated in a build file like
+              <span class="emphasis"><em>bootstrap.js</em></span>,
+              <span class="emphasis"><em>dojo.js</em></span>, or
+              <span class="emphasis"><em>dojo.xd.js</em></span>.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940454">
+              <code class="literal">dojoBlankHtmlUrl</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940468">String</p>
+          <p id="ch01_id35940471">("")</p></td><td align="left" valign="top">
+          <p id="ch01_id35940480">Used to provide the
+              location for a blank HTML document, which is necessary for
+              using the IFRAME transport via <code class="literal">dojo.io.iframe.create</code> (discussed
+              in <a class="xref" href="ajax_and_server_communication.html" title="Chapter 4. AJAX and Server Communication">Chapter 4, <i>AJAX and Server Communication</i></a>). A
+              default is located at
+              <span class="emphasis"><em>dojo/resources/blank.html</em></span>.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940508">
+              <code class="literal">dojoIframeHistoryUrl</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940522">String</p>
+          <p id="ch01_id35940526">("")</p></td><td align="left" valign="top">
+          <p id="ch01_id35940535">Used to provide the
+              location for a special file that is used in combination with
+              <code class="literal">dojo.back</code>, a module for
+              managing the back button (discussed in <a class="xref" href="language_and_browser_utilities.html" title="Chapter 2. Language and Browser Utilities">Chapter 2, <i>Language and Browser Utilities</i></a>). A default is
+              located at <a class="ulink" href="http://dojo/resources/iframe_history.html" target="_top">dojo/resources/iframe_history.html</a>.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940565">
+              <code class="literal">enableMozDomContentLoaded</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940579">Boolean</p>
+          <p id="ch01_id35940582">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940592">Gecko-based browsers
+              like Firefox may optionally use the <code class="literal">DOMContentLoaded</code> event as the
+              trigger to signal that the page has loaded because of a
+              technical nuance related to synchronous XHR request
+              involving a document greater than 65536 bytes<sup>[<a href="toolkit_overview.html#ftn.CHP-1-TFN-1" class="footnoteref">a</a>]</sup></p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940615">
+              <code class="literal">extraLocale</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940630">String or
+          Array</p> <p id="ch01_id35940633">("")</p></td><td align="left" valign="top">
+          <p id="ch01_id35940642">Used to specify
+              additional locales so that Dojo can transparently handle the
+              details associated with providing a localized module. Values
+              may be provided as a <code class="literal">String</code> value or as an <code class="literal">Array</code> of <code class="literal">String</code> values.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940673">
+              <code class="literal">isDebug</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940687">Boolean</p>
+          <p id="ch01_id35940690">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940699">Loads Firebug or
+              Firebug Lite machinery for debugging. Note that stubs for
+              debugging functions such as the various <code class="literal">console</code> methods are in place by
+              default so that code doesn't bust if you choose to remove
+              diagnostic information from your application.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940720">
+              <code class="literal">libraryScriptUri</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940734">String</p>
+          <p id="ch01_id35940738">("")</p></td><td align="left" valign="top">
+          <p id="ch01_id35940747">Used to configure
+              nonbrowser environments such as Rhino and SpiderMonkey
+              (JavaScript engines) in a manner similar to the way that
+              baseUrl works for browser environments.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940762">
+              <code class="literal">locale</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940776">String</p>
+          <p id="ch01_id35940779">(browser provided)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940788">Used to override
+              <code class="literal">dojo.locale</code> with a local
+              other than the one that is retrieved from the
+              browser.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35940808">
+              <code class="literal">modulePaths</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940822">Object</p>
+          <p id="ch01_id35940825">(undefined)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940834">Specifies a
+              collection of key/value pairs that associates modules with
+              their relative paths on disk. While you'll generally place
+              your modules in the toolkit's root directory, this parameter
+              allows for variations if they are needed. When loading Dojo
+              from the CDN or other XDomain, a <code class="literal">baseUrl</code> parameter is also
+              required.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35941022">
+              <code class="literal">parseOnLoad</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35941036">Boolean</p>
+          <p id="ch01_id35941040">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35941049">Specifies whether to
+              automatically parse the page for widgets on page load
+              (essentially just a <code class="literal">dojo.parser.parse( )</code> function call
+              at the appropriate time during the bootstrap
+              process).</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35941069">
+              <code class="literal">require</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35941083">Array</p>
+          <p id="ch01_id35941086">([])</p></td><td align="left" valign="top">
+          <p id="ch01_id35941096">Provides a convenient
+              way of providing modules that should be automatically
+              required once Base loads. When used in conjunction with
+              <code class="literal">afterOnLoad</code>, it
+              designates resources that should be loaded when injecting
+              Dojo into a page after the page has already
+              loaded.</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35941117">
+              <code class="literal">useXDomain</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35940273">Boolean</p>
+          <p id="ch01_id35940276">(false)</p></td><td align="left" valign="top">
+          <p id="ch01_id35940285">Used to force XDomain
+              loading. This action is taken by default with XDomain
+              builds. (See "Benefits of Using XDomain Builds" for benefits
+              of using XDomain loading locally.)</p>
+      </td></tr><tr><td align="left" valign="top">
+          <p id="ch01_id35939952">
+              <code class="literal">xdWaitSeconds</code>
+          </p>
+      </td><td align="left" valign="top"><p id="ch01_id35939966">Number</p>
+          <p id="ch01_id35939969">(15)</p></td><td align="left" valign="top">
+          <p id="ch01_id35939978">Specifies the number
+              of seconds to wait before timing out a request for resources
+              that are cross-domain loaded.</p>
+      </td></tr></tbody><tbody class="footnotes"><tr><td colspan="3"><div class="footnote"><p><sup>[<a id="ftn.CHP-1-TFN-1" href="#CHP-1-TFN-1" class="para">a</a>] </sup><a class="ulink" href="http://trac.dojotoolkit.org/ticket/1704/" target="_top">http://trac.dojotoolkit.org/ticket/1704/</a>
+      </p></div></td></tr></tbody></table></div></div><br class="table-break"><div class="comment_container" id="c_djconfig_configuration_switches"></div><div class="warning"><h3 class="title">Warning</h3><p id="ch01_id35939992">The <code class="literal">djConfig</code> parameter is
+          <code class="literal">modulePaths</code>, while the Base
+          function for setting up individual module paths is <code class="literal">dojo.registerModulePath</code> (no "s" on the
+          end).</p><div class="comment_container" id="c_ch01_id35939992"></div></div><p id="ch01_id35940013">Most of the time, you will define <code class="literal">djConfig</code> in the same <code class="literal">SCRIPT</code> tag that bootstraps the toolkit
+          using <code class="literal">Object</code> -like syntax. The
+          following example illustrates:</p><div class="comment_container" id="c_ch01_id35940013"></div><pre class="programlisting" id="I_programlisting1_d1e2926">&lt;script
+    type="text/javascript"
+    src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js"
+<span class="strong"><strong>    djConfig="parseOnLoad:true,isDebug:true"&gt;</strong></span>
+&lt;/script&gt;</pre><div class="comment_container" id="c_I_programlisting1_d1e2926"></div><p id="ch01_id35940047">However, you might opt to define it prior to the <code class="literal">SCRIPT</code> tag that loads the toolkit if you
+          have a lot of configuration switches, or if it's just more
+          convenient to do it that way for your particular situation. Here's a
+          translation of the previous example that produces the very same
+          effect:</p><div class="comment_container" id="c_ch01_id35940047"></div><pre class="programlisting" id="I_programlisting1_d1e2936">&lt;script type="text/javascript"&gt;
+<span class="strong"><strong>    djConfig = {</strong></span>
+<span class="strong"><strong>        parseOnLoad : true,</strong></span>
+<span class="strong"><strong>        isDebug : true</strong></span>
+<span class="strong"><strong>    };</strong></span>
+&lt;/script&gt;
+
+&lt;script
+  type="text/javascript"
+  src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js "&gt;
+&lt;/script&gt;</pre><div class="comment_container" id="c_I_programlisting1_d1e2936"></div></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="exploring_dojo_with_firebug">Exploring Dojo with Firebug</h2></div></div></div><p id="ch01_id35940097">Although the rest of this book systematically works through the
+          entire toolkit, let's take a moment to tinker around with Dojo from
+          the Firebug console. During development, there may be times when it is
+          helpful to try out a few ideas in isolation, and the Firebug console
+          provides an environment that behaves much like an
+          interpreter.<a id="IDX-CHP-1-0154" class="indexterm"></a><a id="IDX-CHP-1-0155" class="indexterm"></a><a id="IDX-CHP-1-0156" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35940097"></div><div class="sidebar" id="injecting_dojo"><p class="title"><b>Injecting Dojo</b></p><p id="ch01_id35940138">If you decide that you ever want to use Dojo to hack on
+          existing pages out on the Net somewhere, you can do it via dynamic
+          script insertion via Firebug or a bookmarklet. As of version 1.1,
+          the configuration switches <code class="literal">afterOnLoad</code> and <code class="literal">require</code> were added, which ensure that the
+          normal callback sequence that occurs after page load occurs.</p><p id="ch01_id35940155">Here's some code that inserts Dojo into an existing page that
+          you can paste and execute in the Firebug console. The only nuance is
+          that you must define <code class="literal">djConfig</code> as
+          its own object—not inline with the script tag—if you want to
+          <span class="emphasis"><em>safely</em></span> inject Dojo after the page has loaded
+          because of subtleties with how browsers process dynamic script
+          tags:</p><pre class="programlisting" id="I_programlisting1_d1e2989">/*Define djConfig w/ afterOnLoad being set to true. You could also pass in
+requests for any additional modules if you needed them. Let's assume you need the
+dojo.behavior module.*/
+djConfig={afterOnLoad:true,require:['dojo.behavior']}
+
+/* Create the same script tag that would normally appear in the page's head */
+var e = document.createElement("script");
+e.type="text/javascript";
+e.src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js";
+
+/* And insert it. That's it */
+document.getElementsByTagName("head")[0].appendChild(e);</pre><p id="ch01_id35940182">Or better yet, you could just create a bookmarklet<span id="CHP-1-FN-4"><sup>[<a href="#ftn.CHP-1-FN-4" class="footnote">10</a>]</sup></span> and load Dojo via a keyboard shortcut or by manually
+          clicking on the bookmark: all that's entailed in creating the
+          bookmarklet is wrapping the previous code block into a function and
+          executing it. In your browser, create a bookmark called "Dojo-ify"
+          and use this code (all one line) as the location:</p><pre class="programlisting" id="I_programlisting1_d1e2997">(function() {djConfig={afterOnLoad:true,require:['dojo.behavior']};
+var e = document.createElement("script"); e.type="text/javascript";
+e.src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js";
+document.getElementsByTagName("head")[0].appendChild(e);})()</pre><p id="ch01_id35940205">When you execute the bookmark, this script will load Dojo into
+          the page, giving you full access to the CDN's build of Dojo. At that
+          point, you could hack on the page to your heart's contentment. Just
+          be aware that as of Dojo 1.1, there isn't an <code class="literal">addOnLoad</code> equivalent to signal when the
+          toolkit (and any required modules) have completed loading. Dojo 1.2,
+          however, will add in an <code class="literal">addOnLoad</code>
+          equivalent. See <a class="ulink" href="http://www.oreillynet.com/onlamp/blog/2008/05/dojo_goodness_part_7_injecting.html" target="_top">http://www.oreillynet.com/onlamp/blog/2008/05/dojo_goodness_part_7_injecting.html</a>
+          for some helpful details.</p><p id="ch01_id35940228">Another interesting possibility for injecting Dojo into the
+          page after it loads is for lazy-loading widgets into profiles on
+          social networking apps, public profiles, and so on.</p></div><div class="comment_container" id="c_injecting_dojo"></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="exploring_base">Exploring Base</h3></div></div></div><p id="ch01_id35940241">To illustrate, transcribe the minimalist HTML page in <a class="xref" href="toolkit_overview.html#a_really_simple_html_page_for_illust" title="Example 1.3. A really simple HTML page for illustrating a few features from Base">Example 1.3, “A really simple HTML page for illustrating a few features
+          from Base”</a> into a local file
+          to get started. The only Dojo-specific nuance is the script tag that
+          performs the XDomain loading. Although we haven't covered the
+          <code class="literal">djConfig</code> parameter that you'll
+          see is included in the <code class="literal">SCRIPT</code>
+          tag, it's just a way of passing in configuration information to Dojo
+          as it bootstraps. In this case, we're specifying that debugging
+          facilities such as the Firebug console should be explicitly
+          available to us. Even if you're using another browser such as IE,
+          the <code class="literal">djConfig="isDebug:true"</code>
+          option ensures that Firebug Lite is loaded.<a id="IDX-CHP-1-0157" class="indexterm"></a><a id="IDX-CHP-1-0158" class="indexterm"></a><a id="IDX-CHP-1-0159" class="indexterm"></a><a id="IDX-CHP-1-0160" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35940241"></div><div class="example" id="a_really_simple_html_page_for_illust"><p class="title"><b>Example 1.3. A really simple HTML page for illustrating a few features
+          from Base</b></p><div class="example-contents"><pre class="programlisting" id="ch01_id35940942">&lt;html&gt;
+     &lt;head&gt;
+         &lt;title&gt;Fun with Dojo!&lt;/title&gt;
+
+            &lt;link rel="stylesheet"  type="text/css"
+              href="http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css" /&gt;
+
+         &lt;script
+              type="text/javascript"
+              src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js"
+             djConfig="isDebug:true"&gt;
+        &lt;/script&gt;
+
+        &lt;style type="text/css"&gt;
+              .blue {color: blue;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+     &lt;body&gt;
+        &lt;div id="d1" class="blue"&gt;A div with id=d1 and class=blue&lt;/div&gt;
+        &lt;div id="d2"&gt;A div with id=d2&lt;/div&gt;
+        &lt;div id="d2"&gt;Another div with id=d2&lt;/div&gt;
+        &lt;div id="d4"&gt;A div with id=d3.
+            &lt;span id="s1"&gt;
+                This sentence is in a span that's contained in d1.
+                The span's id is s1.
+            &lt;/span&gt;
+        &lt;/div&gt;
+         &lt;form name="foo" action=""&gt;
+             A form with name="foo"
+         &lt;/form&gt;
+          &lt;div id="foo"&gt;
+             A div with id=foo
+          &lt;/div&gt;
+      &lt;/body&gt;
+&lt;/html&gt;</pre><div class="comment_container" id="c_ch01_id35940942"></div></div></div><br class="example-break"><p id="ch01_id35940948">Once you've saved out the file, open the page in Firefox, and
+          click on the little green circle with the checkmark in it to expand
+          the Firebug console. Then, click on the caret icon just beside
+          Firebug's search box to open up Firebug in a new window, as shown in
+          <a class="xref" href="toolkit_overview.html#firebug_reveals_valuable_information" title="Figure 1.2. Firebug reveals valuable information that you can use to sanity check what is happening with network requests, and more">Figure 1.2, “Firebug reveals valuable information that you can use to
+              sanity check what is happening with network requests, and
+              more”</a>. (If you
+          haven't read the primer on Firebug in <a class="xref" href="a_firebug_primer.html" title="Appendix A. A Firebug Primer">Appendix A, <i>A Firebug Primer</i></a>, this would be a good time to divert
+          and do so.) Clicking on the "Net" tab reveals that the XDomain
+          <span class="emphasis"><em>dojo.xd.js</em></span> file consisting of Base has indeed
+          been downloaded from the CDN.</p><div class="comment_container" id="c_ch01_id35940948"></div><div class="figure" id="firebug_reveals_valuable_information"><p class="title"><b>Figure 1.2. Firebug reveals valuable information that you can use to
+          sanity check what is happening with network requests, and
+          more</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e3072"><a href="#" class="box"><img src="/static/titles/9780596516482/figs/web/dojo_0102.png" alt="Firebug reveals valuable information that you can use to sanity check what is happening with network requests, and more"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_firebug_reveals_valuable_information"></div><p id="ch01_id35941007">If you click back on the "Console" tab and type <code class="literal">dojo</code> on the
+          <span class="emphasis"><em>&gt;&gt;&gt;</em></span> prompt followed by the enter key,
+          you should see a Firebug console message that says something along
+          the lines of <code class="literal">Object global=window
+              isBrowser=true isRhino=false</code>, which shows you that the
+          global JavaScript object <code class="literal">dojo</code> is
+          indeed alive and well. Typing in <code class="literal">console.dir(dojo)</code> would provide an
+          exhaustive tree-view of everything that's contained in Dojo.
+          Although you'll also see a lot of private members that are prefixed
+          with a leading underscore, go ahead try it out for yourself.
+          Skimming the contents of the output will give you a small taste of
+          what's packed up inside of Base.</p><div class="comment_container" id="c_ch01_id35941007"></div><div class="sect3" lang="en" xml:lang="en"><div class="titlepage"><div><div><h4 class="title" id="dojo.byid">dojo.byId</h4></div></div></div><p id="ch01_id35817301">Dojo provides <code class="literal">dojo.byId</code>
+          as a drop-in replacement for <code class="literal">document.getElementById</code>. Thus, passing
+          in a string value like <code class="literal">dojo.byId("s1")</code>, for example, shows that
+          it returns a reference that you could store in a variable just
+          like you could with a call to <code class="literal">document.getElementById</code>. However, in
+          addition to looking up an <code class="literal">id</code>
+          value, <code class="literal">dojo.byId</code> also acts like
+          a no-op if you pass it a DOM node. Internally, the function
+          introspects its argument, so on the application level, you don't
+          have to even think twice. Its complete function signature looks
+          like this:<a id="IDX-CHP-1-0161" class="indexterm"></a><a id="IDX-CHP-1-0162" class="indexterm"></a><a id="IDX-CHP-1-0163" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35817301"></div><pre class="programlisting" id="I_programlisting1_d1e3133">dojo.byId(/*String*/ id | /*DomNode*/ node)  // Returns a DOM Node</pre><div class="comment_container" id="c_I_programlisting1_d1e3133"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35817168">Throughout the book, the pipe, <code class="literal">|</code>, is used to denote the logical "or"
+          operation in function signatures whenever there is more than one
+          possibility.</p><div class="comment_container" id="c_ch01_id35817168"></div></div><p id="ch01_id35945434">Because it appears that <code class="literal">dojo.byId</code> does almost the very same
+          thing as <code class="literal">document.getElementById</code>, you may be
+          tempted to just forget about <code class="literal">dojo.byId</code> all together—but don't! As it
+          turns out, it smooths out some subtle inconsistencies that might
+          just burn you when you least expect it. One well-known bug for
+          <code class="literal">document.getElementById</code>
+          surfaces IE6 and IE7. To illustrate, type the following into the
+          Firebug Lite console for the sample document we're working on, and
+          you'll see <a class="xref" href="toolkit_overview.html#the_resulting_behavior_of_document" title="Figure 1.3. The resulting behavior of document.getElementById versus dojo.byId for the previous document">Figure 1.3, “The resulting behavior of document.getElementById versus
+              dojo.byId for the previous document”</a>:</p><div class="comment_container" id="c_ch01_id35945434"></div><div class="figure" id="the_resulting_behavior_of_document"><p class="title"><b>Figure 1.3. The resulting behavior of document.getElementById versus
+          dojo.byId for the previous document</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e3160"><a href="#" class="box"><img src="/static/titles/9780596516482/figs/web/dojo_0103.png" alt="The resulting behavior of document.getElementById versus dojo.byId for the previous document"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_the_resulting_behavior_of_document"></div><pre class="programlisting" id="I_programlisting1_d1e3165">document.getElementById("foo") //Isn't the answer *so* obvious?!?</pre><div class="comment_container" id="c_I_programlisting1_d1e3165"></div><p id="ch01_id35945515">Hmm. You probably didn't expect to have the <code class="literal">FORM</code> element returned, did you? As it
+          turns out, if it had not appeared first in the document, you
+          should have gotten the <code class="literal">div</code>
+          element returned. This particular bug arises because the <code class="literal">name</code> and <code class="literal">id</code> attribute namespaces are merged for
+          IE. So much for cross-browser compatibility on the obvious things
+          in life! <a class="xref" href="toolkit_overview.html#dojo_makes_your_code_more_portable" title="Figure 1.4. Dojo makes your code more portable by insulating you from browser quirks">Figure 1.4, “Dojo makes your code more portable by insulating you from
+              browser quirks”</a>
+          shows how Dojo protects you from the cold hard metal of the
+          browser, saving you from working around the multitude of
+          inconsistencies that would otherwise prevent your application from
+          being portable.</p><div class="comment_container" id="c_ch01_id35945515"></div><div class="figure" id="dojo_makes_your_code_more_portable"><p class="title"><b>Figure 1.4. Dojo makes your code more portable by insulating you from
+          browser quirks</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e3186"><a href="#" class="box"><img src="/static/titles/9780596516482/figs/web/dojo_0104.png" alt="Dojo makes your code more portable by insulating you from browser quirks"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_dojo_makes_your_code_more_portable"></div><p id="ch01_id35945588">But in addition to <code class="literal">dojo.byId</code> working around that particular
+          quirk, <code class="literal">dojo.byId</code> also returns
+          the first element if more than one element has an <code class="literal">id</code> set to the same value, thereby
+          normalizing corner case behavior. For our example document, you
+          can verify that <code class="literal">dojo.byId</code>
+          always returns the first element by trying out the following
+          statement:</p><div class="comment_container" id="c_ch01_id35945588"></div><pre class="programlisting" id="I_programlisting1_d1e3205">dojo.byId("d2").innerHTML</pre><div class="comment_container" id="c_I_programlisting1_d1e3205"></div><p id="ch01_id35945622">More than anything else, the takeaway from this short lesson
+          is that if you're developing with a JavaScript toolkit, use its
+          API to get work done instead of ways you may have learned with raw
+          JavaScript. Occasionally, you may see an API call that doesn't
+          seem to add any additional value, and the temptation may be to
+          fall back to your own tried-and-true method of getting something
+          accomplished—but resist the temptation! Well-designed APIs do not
+          provide useless functionality.<a id="IDX-CHP-1-0164" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35945622"></div><div class="warning"><h3 class="title">Warning</h3><p id="ch01_id35945639">Viewing an API call as "worthless" may be an indication
+          that you may be confused about the exact utility that the call
+          provides. Whenever this happens, review the documentation to
+          find out what it is you're missing. If the documentation still
+          doesn't convince you, hop on a mailing list or IRC channel and
+          ask someone about it.</p><div class="comment_container" id="c_ch01_id35945639"></div></div></div><div class="sect3" lang="en" xml:lang="en"><div class="titlepage"><div><div><h4 class="title" id="dojo.connect">dojo.connect</h4></div></div></div><p id="ch01_id35945655">Grabbing a DOM node is admittedly boring, so let's look at
+          something slightly more interesting—like attaching a UI event such
+          as a mouse movement to a node via <code class="literal">dojo.connect</code>, the toolkit's machinery
+          for dynamically adding and removing these types of events. Its
+          signature might look complex at first glance, but it's actually
+          quite simple in routine use. Take a look:<a id="IDX-CHP-1-0165" class="indexterm"></a><a id="IDX-CHP-1-0166" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35945655"></div><pre class="programlisting" id="I_programlisting1_d1e3236">connect(/*Object|null*/ obj,
+        /*String*/ event,
+        /*Object|null*/ context,
+        /*String|Function*/ method) // Returns a connection handle</pre><div class="comment_container" id="c_I_programlisting1_d1e3236"></div><p id="ch01_id35945696">To try out <code class="literal">connect</code>,
+          execute the following code into the Firebug console, and then move
+          your mouse over the content of the sentence contained in the
+          <code class="literal">SPAN</code> to see that the <code class="literal">mouseover</code> event was set up properly.
+          (You'll probably want to click on the caret icon in the
+          lower-right corner to expand the command prompt to multiline
+          mode.)</p><div class="comment_container" id="c_ch01_id35945696"></div><pre class="programlisting" id="I_programlisting1_d1e3249">var handle = dojo.connect(
+  dojo.byId("s1"), //context
+  "onmouseover", //event
+  null, //context
+  function(evt) {console.log("mouseover event", evt);} //event
+);</pre><div class="comment_container" id="c_I_programlisting1_d1e3249"></div><p id="ch01_id35945727">You should notice that in addition to seeing confirmation in
+          the Firebug console that an event has occurred, you get an actual
+          reference to the event that you can click on and inspect—usually
+          getting vital information relating to where the click occurred on
+          the screen and more.</p><div class="comment_container" id="c_ch01_id35945727"></div><p id="ch01_id35945737">As it turns out, <code class="literal">dojo.connect</code>, like <code class="literal">dojo.byId</code>, does a lot of inspecting so
+          that you don't have to think nearly as much about it as you might
+          initially imagine. In fact, any arguments that may be null can be
+          omitted completely. Thus, the previous function call could be
+          reduced to the slightly more readable:</p><div class="comment_container" id="c_ch01_id35945737"></div><pre class="programlisting" id="I_programlisting1_d1e3261">var handle = dojo.connect(
+  dojo.byId("s1"), //context
+  "onmouseover", //event
+  function(evt) {console.log("mouseover event",evt);} //event
+);</pre><div class="comment_container" id="c_I_programlisting1_d1e3261"></div><p id="ch01_id35945762">Tearing down the connection so that the function that is
+          executed is based on a DOM event is even easier, and is important
+          for preventing memory leaks if you are doing a lot of connecting
+          and disconnecting. Just call <code class="literal">dojo.disconnect</code> on the handle you saved,
+          and Dojo takes care of the rest for you:</p><div class="comment_container" id="c_ch01_id35945762"></div><pre class="programlisting" id="I_programlisting1_d1e3268">dojo.disconnect(handle);</pre><div class="comment_container" id="c_I_programlisting1_d1e3268"></div><p id="ch01_id35945780">Although it is a simple example, <code class="literal">dojo.connect</code> demonstrates a key
+          principle behind Dojo's philosophy: make getting from A to B as
+          simple as it should have been all along. Sure—if you're
+          well-versed in your JavaScript, you could go through the motions
+          of setting up, maintaining, and tearing down connections all on
+          your own. However, you'd still incur the cost of boilerplate that
+          would clutter up your design, and let's not forget: every line of
+          code you write is a line you have to maintain. For the aspiring
+          web developers out there and those among us who prefer to keep
+          things simple, calling <code class="literal">dojo.connect</code> and <code class="literal">dojo.disconnect</code> is a fine option.</p><div class="comment_container" id="c_ch01_id35945780"></div><p id="ch01_id35945806">Dojo doesn't do anything that JavaScript can't already do,
+          and for that matter, neither does any other JavaScript toolkit.
+          The tremendous value that Dojo introduces is in smoothing out
+          inconsistencies amongst multiple browsers and making common
+          operations as simple as they should have been all along—protecting
+          you from writing and maintaining all of that boilerplate, which
+          allows you to be as productive as possible.</p><div class="comment_container" id="c_ch01_id35945806"></div><p id="ch01_id35945810">Another neat feature that demonstrates tremendous power in a
+          tiny package is <code class="literal">dojo.query</code>, the
+          toolkit's mechanism for quickly querying the page with CSS3 style
+          syntax.</p><div class="comment_container" id="c_ch01_id35945810"></div><div class="tip"><h3 class="title">Tip</h3><p id="ch01_id35945832"><a class="xref" href="node_manipulation.html" title="Chapter 5. Node Manipulation">Chapter 5, <i>Node Manipulation</i></a> covers <code class="literal">dojo.query</code> in detail and provides a
+          lot more context about CSS3 selectors, if you want to jump ahead
+          and skim over them.</p><div class="comment_container" id="c_ch01_id35945832"></div></div><p id="ch01_id35945845">For example, finding all of the <code class="literal">DIV</code> elements on the page is as simple as
+          calling:</p><div class="comment_container" id="c_ch01_id35945845"></div><pre class="programlisting" id="I_programlisting1_d1e3301">dojo.query("div") //find all of the div elements in the DOM</pre><div class="comment_container" id="c_I_programlisting1_d1e3301"></div><p id="ch01_id35945862">If you try that statement out in the Firebug console, you'll
+          see that you indeed get back a list of <code class="literal">DIV</code> elements. Querying the page for the
+          existence of a particular named <code class="literal">DIV</code> element is just as easy as it should
+          be as well:</p><div class="comment_container" id="c_ch01_id35945862"></div><pre class="programlisting" id="I_programlisting1_d1e3311">dojo.query("div#d2") //check for the existence of a div with id=d2</pre><div class="comment_container" id="c_I_programlisting1_d1e3311"></div><p id="ch01_id35945886">And then there's querying by class:</p><div class="comment_container" id="c_ch01_id35945886"></div><pre class="programlisting" id="I_programlisting1_d1e3315">dojo.query(".blue") //returns a list of elements that have the blue class applied.</pre><div class="comment_container" id="c_I_programlisting1_d1e3315"></div><p id="ch01_id35945898">Speaking of classes, you could also filter on particular
+          element types, but because there's only one <code class="literal">DIV</code> that has a class applied to it,
+          we'll need to apply the <code class="literal">blue</code>
+          class to another element as well. But before you go and start
+          editing the page itself, why not just use another built-in
+          function from Base, <code class="literal">dojo.addClass</code>, to apply the class like
+          so:</p><div class="comment_container" id="c_ch01_id35945898"></div><pre class="programlisting" id="I_programlisting1_d1e3328">dojo.addClass("s1", "blue");  //add the blue class to the SPAN</pre><div class="comment_container" id="c_I_programlisting1_d1e3328"></div><p id="ch01_id35945927">After we apply the <code class="literal">blue</code>
+          class to <code class="literal">s1</code>, we can illustrate
+          another query with <code class="literal">dojo.query</code>
+          like so:</p><div class="comment_container" id="c_ch01_id35945927"></div><pre class="programlisting" id="I_programlisting1_d1e3342">dojo.query("span.blue") //returns only span elements with the blue class applied</pre><div class="comment_container" id="c_I_programlisting1_d1e3342"></div><p id="ch01_id35945955">Getting the hang of it? Sure, we <span class="emphasis"><em>could</em></span>
+          do all of these things in our own roundabout ways, but isn't it
+          nice to know that the toolkit insulates you from all of that
+          mayhem and provides a single, easy-to-use function instead?</p><div class="comment_container" id="c_ch01_id35945955"></div></div></div><div class="sect2" lang="en" xml:lang="en"><div class="titlepage"><div><div><h3 class="title" id="exploring_dijit">Exploring Dijit</h3></div></div></div><p id="ch01_id35945973">While we could go on and on showcasing Base's easy-to-use API,
+          let's save that for subsequent chapters and instead divert to a
+          quick example of how easy it is to snap some dijits into your page
+          without any additional programming.<a id="IDX-CHP-1-0167" class="indexterm"></a></p><div class="comment_container" id="c_ch01_id35945973"></div><p id="ch01_id35945988">Suppose you have the page shown in <a class="xref" href="toolkit_overview.html#a_very_primitive_form_example" title="Example 1.4. A very primitive form example">Example 1.4, “A very primitive form example”</a>.</p><div class="comment_container" id="c_ch01_id35945988"></div><div class="example" id="a_very_primitive_form_example"><p class="title"><b>Example 1.4. A very primitive form example</b></p><div class="example-contents"><pre class="programlisting" id="ch01_id35946004">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Fun with Dijit!&lt;/title&gt;
+    &lt;/head&gt;
+        &lt;body&gt;
+        Just Use the form below to sign-up for our great offers:&lt;br /&gt;&lt;br /&gt;
+        &lt;form id="registration_form"&gt;
+            First Name: &lt;input type="text" maxlength=25 name="first"/&gt;&lt;br /&gt;
+            Last Name: &lt;input type="text" maxlength=25 name="last"/&gt;&lt;br /&gt;
+            Your Email: &lt;input type="text" maxlength=25 name="email"/&gt;&lt;br /&gt;&lt;br /&gt;
+            &lt;button onclick="alert('Boo!')"&gt;Sign Up!&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="comment_container" id="c_ch01_id35946004"></div></div></div><br class="example-break"><p id="ch01_id35946017"><a class="xref" href="toolkit_overview.html#a_functional_but_very_ugly_form" title="Figure 1.5. A functional but very ugly form">Figure 1.5, “A functional but very ugly form”</a> shows what
+          that page looks like, although it's not very difficult to
+          imagine.</p><div class="comment_container" id="c_ch01_id35946017"></div><div class="figure" id="a_functional_but_very_ugly_form"><p class="title"><b>Figure 1.5. A functional but very ugly form</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e3374"><a href="#" class="box"><img src="/static/titles/9780596516482/figs/web/dojo_0105.png" alt="A functional but very ugly form"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_a_functional_but_very_ugly_form"></div><p id="ch01_id35946062">That might have cut it back in '92, but it's wholly
+          unacceptable for this day and age. Take a moment to consider what
+          your normal routine would be at this point: define some classes,
+          apply the classes, write some JavaScript to provide validation
+          routines, etc.</p><div class="comment_container" id="c_ch01_id35946062"></div><p id="ch01_id35946067">To give you a taste of how the page would look after some
+          Dojoification, take a look at <a class="xref" href="toolkit_overview.html#a_form_that_apostrophy_s_not_so_prim" title="Example 1.5. A form that's not so primitive anymore (thanks to some Dojoification)">Example 1.5, “A form that's not so primitive anymore (thanks to some
+              Dojoification)”</a>. Don't worry about
+          what every little detail is doing; lots of pages follow on that get
+          into the nooks and crannies of the finer details. For now, just
+          familiarize yourself with the general structure of a page with some
+          dijits snapped into it.</p><div class="comment_container" id="c_ch01_id35946067"></div><div class="example" id="a_form_that_apostrophy_s_not_so_prim"><p class="title"><b>Example 1.5. A form that's not so primitive anymore (thanks to some
+          Dojoification)</b></p><div class="example-contents"><pre class="programlisting" id="ch01_id35946087">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Fun with Dijit!&lt;/title&gt;
+
+        &lt;!-- Grab some style sheets for the built-in tundra theme that Dojo offers for
+         styling the page, equipping you with a professional style without
+any additional
+         effort required. --&gt;
+        &lt;link rel="stylesheet" type="text/css"
+          href="http://o.aolcdn.com/dojo/1.1/dijit/themes/tundra/tundra.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css"
+          href="http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css" /&gt;
+        &lt;!-- Add in some plain old CSS to line up the form elements more nicely --&gt;
+
+        &lt;style type="text/css"&gt;
+            h3 {
+                margin : 10px;
+            }
+            label,input {
+                display: block;
+                float: left;
+                margin-bottom: 5px;
+             }
+             label {
+                text-align: right;
+                width: 70px;
+                padding-right: 20px;
+             }
+             br {
+                clear: left;
+             }
+             .grouping {
+                width:300px;
+                border:solid 1px rgb(230,230,230);
+                padding:5px;
+                margin:10px;
+             }
+        &lt;/style&gt;
+
+        &lt;!-- Load Base and specify that the page should be parsed for dijits after it
+          loads --&gt;
+        &lt;script
+            type="text/javascript"
+            src="http://o.aolcdn.com/dojo/1.1/dojo/dojo.xd.js"
+            djConfig="parseOnLoad: true" &gt;
+        &lt;/script&gt;
+
+        &lt;!-- Load some dijits via dojo.require in the same manner that you
+would #include
+          some files in C programming or perform an import in Java --&gt;
+        &lt;script type="text/javascript"&gt;
+            dojo.require("dojo.parser");
+            dojo.require("dijit.form.TextBox");
+            dojo.require("dijit.form.ValidationTextBox");
+            dojo.require("dijit.form.Button");
+        &lt;/script&gt;
+    &lt;/head&gt;
+
+        &lt;!-- Specify that the built-in tundra theme should be applied to
+everything in the
+          body of the page. (Dijit relies heavily on CSS so including the appropriate
+          theme is crucial.)--&gt;
+        &lt;body class="tundra"&gt;
+
+            &lt;h3&gt;Sign-up for our great offers:&lt;/h3&gt;
+
+            &lt;form id="registration_form"&gt;
+
+                &lt;!-- Weave some widgets into the page by supplying the tags and
+including
+                  a dojoType attribute so the parser can find them and swap
+them out --&gt;
+
+                &lt;div class="grouping"&gt;
+                    &lt;label&gt;First Name:&lt;/label&gt;
+                    &lt;input type="text"
+                     maxlength=25
+                     name="first"
+                     dojoType="dijit.form.TextBox"
+                     trim="true"
+                     propercase="true"/&gt;&lt;br&gt;
+
+                    &lt;label&gt;Last Name:&lt;/label&gt;
+                    &lt;input type="text"
+                     maxlength=25
+                     name="last"
+                     dojoType="dijit.form.TextBox"
+                     trim="true"
+                     propercase="true"/&gt;&lt;br&gt;
+
+                    &lt;label&gt;Your Email:&lt;/label&gt;
+                    &lt;input type="text"
+                     maxlength=25
+                     name="email"
+                     dojoType="dijit.form.ValidationTextBox"
+                     trim="true"
+                     lowercase="true"
+                     regExp="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}"
+                     required="true"
+                     invalidMessage="Please enter a valid e-mail address"/&gt;&lt;br&gt;
+
+                    &lt;button dojoType="dijit.form.Button"
+                     onClick="alert('Boo!')"&gt;Sign Up!&lt;/button&gt;
+                &lt;/div&gt;
+
+            &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="comment_container" id="c_ch01_id35946087"></div></div></div><br class="example-break"><p id="ch01_id35946093">And voilà, <a class="xref" href="toolkit_overview.html#a_much_better_looking_form" title="Figure 1.6. A much better looking form, using out-of-the-box dijits">Figure 1.6, “A much better looking form, using out-of-the-box
+          dijits”</a> shows
+          what it looks like, complete simple validation functionality.</p><div class="comment_container" id="c_ch01_id35946093"></div><div class="figure" id="a_much_better_looking_form"><p class="title"><b>Figure 1.6. A much better looking form, using out-of-the-box
+          dijits</b></p><div class="figure-contents"><div class="mediaobject" id="I_mediaobject1_d1e3397"><a href="#" class="box"><img src="/static/titles/9780596516482/figs/web/dojo_0106.png" alt="A much better looking form, using out-of-the-box dijits"></a></div></div></div><br class="figure-break"><div class="comment_container" id="c_a_much_better_looking_form"></div><p id="ch01_id35946139">If you're intrigued by the examples in this chapter, and are
+          ready to learn more about Dojo, then you've come to the right place.
+          The following chapters systematically work through the specifics of
+          the toolkit. But first, let's take a quick moment to reflect on what
+          this chapter was all about (as we'll do in every chapter).</p><div class="comment_container" id="c_ch01_id35946139"></div></div></div><div class="sect1" lang="en" xml:lang="en"><div class="titlepage"><div><div><h2 class="title" id="summary">Summary</h2></div></div></div><p id="ch01_id35946154">This chapter barely scratched the surface of your journey with
+          Dojo, but it nonetheless covered a lot of ground. After reading this
+          chapter, you should:</p><div class="comment_container" id="c_ch01_id35946154"></div><div class="itemizedlist" id="ch01_id35946159"><ul><li><p id="ch01_id35946165">Know where to go to download the toolkit and set up a
+          development environment</p><div class="comment_container" id="c_ch01_id35946165"></div></li><li><p id="ch01_id35946172">Understand the toolkit's architecture and the key
+          differences between each component</p><div class="comment_container" id="c_ch01_id35946172"></div></li><li><p id="ch01_id35946180">Understand some of the common parlance used in Dojo
+          development</p><div class="comment_container" id="c_ch01_id35946180"></div></li><li><p id="ch01_id35946187">Realize some of the benefits of using Firebug during the
+          development cycle</p><div class="comment_container" id="c_ch01_id35946187"></div></li><li><p id="ch01_id35946194">Understand the basic ideas behind how the toolkit bootstraps
+          itself</p><div class="comment_container" id="c_ch01_id35946194"></div></li><li><p id="ch01_id35946201">Have an appreciation for how easy it is to use Base and plug
+          out-of-the-box dijits into a page</p><div class="comment_container" id="c_ch01_id35946201"></div></li><li><p id="ch01_id35946208">Be familiar with the look and feel of Dojo code</p><div class="comment_container" id="c_ch01_id35946208"></div></li><li><p id="ch01_id35946215">Be excited to read the subsequent chapters and learn more
+          about Dojo</p><div class="comment_container" id="c_ch01_id35946215"></div></li></ul></div><p id="ch01_id35946221">The next chapter will discuss language and browser
+          utilities.</p><div class="comment_container" id="c_ch01_id35946221"></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a id="ftn.CHP-1-FN-1" href="#CHP-1-FN-1" class="para">7</a>] </sup>A standard for accomplishing Accessible Rich Internet
+          Applications: <a class="ulink" href="http://www.w3.org/WAI/intro/aria" target="_top">http://www.w3.org/WAI/intro/aria</a>.</p></div><div class="footnote"><p><sup>[<a id="ftn.CHP-1-FN-2" href="#CHP-1-FN-2" class="para">8</a>] </sup>As you might already have been thinking, DOH is also a pun
+          on Homer Simpson's famous expletive; the test runner can
+          optionally play a "D'oh!" sound effect when a test fails.</p></div><div class="footnote"><p><sup>[<a id="ftn.CHP-1-FN-3" href="#CHP-1-FN-3" class="para">9</a>] </sup>Generally speaking, the page load occurring consists of
+          either the window's <code class="literal">onload</code>
+          event or possibly the <code class="literal">DOMContentLoaded</code> for Mozilla
+          variations completing.<a id="IDX-CHP-1-0124" class="indexterm"></a><a id="IDX-CHP-1-0125" class="indexterm"></a><a id="IDX-CHP-1-0126" class="indexterm"></a><a id="IDX-CHP-1-0127" class="indexterm"></a></p></div><div class="footnote"><p><sup>[<a id="ftn.CHP-1-FN-4" href="#CHP-1-FN-4" class="para">10</a>] </sup>Bookmarklets are nothing more than snippets of JavaScript
+          code that can be stored as a bookmark. Generally, bookmarklets
+          are designed to augment the behavior in a page.</p></div></div></div><div class="navheader"><table width="100%"><tr><td width="20%" align="left" valign="center"><a accesskey="p" href="base_and_core.html"><img src="/static/images/btn-arrow-left.png" alt="Previous"><span class="link">Part I</span></a> </td><td width="40%" align="center"><h3><a accesskey="h" href="index.html">Dojo: The Definitive Guide</a></h3><h2>Chapter 1. Toolkit Overview</h2></td><td width="20%" align="right" valign="center"> <a accesskey="n" href="language_and_browser_utilities.html"><span class="link">Chapter 2</span><img src="/static/images/btn-arrow-right.png" alt="Next"></a></td></tr></table></div></div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
