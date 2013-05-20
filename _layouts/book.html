@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% include JB/setup %}
+
+
+<div class="container">
+
+    <a href="#"><span class="badge badge-info pull-right">edit</span></a>
+
+	<div class="page-header">
+	  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+	</div>
+
+    <h3> {{ page.creator | join: ', ' }} </h3>
+
+    <hr>
+    <h1><a href="{{BASE_PATH}}/{{page.book_path}}{{page.manifest[0]}}" style="color: #2e8b57"> -> Start reading</a> </h1>
+    <hr>
+
+    <img src="{{ BASE_PATH }}/{{ page.book_path }}{{ page.cover }}" />
+
+    <p> publisher: {{ page.publisher }}</p>
+    <p> subject: {{ page.subject }}</p>
+
+    <h3> Description </h3>
+
+    {{ page.perface }}
+
+
+    <div class="row-fluid">
+      <div class="span12">
+        {{ content }}
+      </div>
+
+    </div>
+
+    <hr>
+    {% include JB/comments %}
+
+</div> <!-- /container -->
+

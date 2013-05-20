@@ -1,0 +1,58 @@
+---
+layout: default
+title: "Fiction Books"
+description: " % description % "
+group: navigation
+---
+{% include JB/setup %}
+
+<div class="container">
+
+<hr/>
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+    <th class="span4">Caption</th>
+    <th class="span1">Author</th>
+    <th class="span1">Date</th>
+    <th class="span3">Status</th>
+</tr>
+</thead>
+<tbody>
+{% for row in site.posts | limit: 17 %}
+  {% if row.tags contains "none" %}
+  {% else %}
+      <tr>
+          <td>{{ row.title }}</td>
+          <td>{{ row.creator | join: ', ' }}</td>
+          <td>{{ row.date | date: "%Y"}}</td>
+          <td>
+              <a href="{{ BASE_PATH }}{{ row.url }}">read now...</a>
+  <!--             {% for ff in row.formats %}
+              <span class="label {{ ff[1] }}">{{ ff[0] }}</span>
+              {% endfor %}
+              <span class="label">...</span>
+   -->        </td>
+      </tr>
+  {% endif %}
+{% endfor %}
+
+</tbody>
+</table>
+
+
+
+<div class="well"><a href="#">GO TO THE TOP -></a></div> 
+
+</div>
+
+
+
+
+
+
+
+
+

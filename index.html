@@ -1,0 +1,63 @@
+---
+layout: menu
+title: Hello World!
+tagline: Supporting tagline
+
+---
+{% include JB/setup %}
+
+{% assign index = true %}
+
+<div class="container">
+
+<!-- start pagination -->
+<div id="post-pagination" class="pagination">
+
+  <ul class="pages">
+    <li class="page">
+      {% if paginator.page == 1 %}
+        <span class="current-page">1</span>
+      {% else %}
+        <a href="{{ BASE_PATH }}/">1</a>
+      {% endif %}
+    </li>
+
+    {% for count in (2..paginator.total_pages) %}
+      <li class="page">
+        {% if count == paginator.page %}
+          <span class="current-page">{{ count }}</span>
+        {% else %}
+          <a href="{{ BASE_PATH }}/page{{ count }}">{{ count }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
+<!-- end of pagination -->
+<hr />
+
+{% for book in paginator.posts %}
+  <div class="media">
+    <img src="{{ BASE_PATH }}/{{ book.book_path }}{{ book.cover }}"
+         class="media-object pull-left"
+         style="max-height: 300px;" />
+    <div class="media-body">
+      {% for author in book.creator %}
+        <span class="badge badge-success pull-right">{{ author }}</span>
+      {% endfor %}
+      <h2 class="media-heading"><a href="{{ BASE_PATH }}{{ book.url }}">
+      {{ book.title }}
+      </a></h2>
+      <p>{{ book.perface }}</p>
+    </div>
+  </div>
+  <hr />
+{% endfor %}
+
+
+
+<div class="well"><a href="#">GO TO THE TOP -></a></div> 
+
+</div>
+

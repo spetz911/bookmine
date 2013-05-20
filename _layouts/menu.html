@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{% include JB/setup %}
+
+
+<div class="container-fluid">
+<div class="row-fluid">
+
+<div class="sidebar-nav span3">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="nav-header">Fiction and other:</li>
+      {% for tag in site.tags %}
+        <li class="tag_box">
+          <a href="{{ BASE_PATH }}/tags/{{ tag[0] }}.html">
+            {% if page.tag_id == tag[0] %}
+              <i class="icon-folder-open"></i>
+              <strong class="text-info">
+            {% else %}
+              <i class="icon-folder-close"></i>
+            {% endif %}          
+            {% for p in site.pages %}
+              {% if p.tag_id == tag[0] %}
+                {{ p.title }}
+              {% endif %}
+            {% endfor %}
+            <span>{{ tag[1].size }}</span>
+            {% if page.tag_id == tag[0] %}
+              </strong>
+            {% endif %}
+        </a></li>
+      {% endfor %}
+    </ul>
+</div>
+
+<div class="span9">
+
+
+<div class="subnav">
+  <ul class="nav nav-pills">
+    <li class="nav-header">Programming:</li><br/>
+    <li class="divider" />
+      
+    {% for category in site.categories %}
+      <li class="tag_box"><a href="{{ BASE_PATH }}/categories/{{ category[0] }}.html">
+        {% if page.category_id == category[0] %}
+        <strong class="text-info">
+        <i class="icon-book"></i>
+        {{ category[0] | join: "/" | capitalize }} <span>{{ category[1].size }}</span>
+        </strong>
+        {% else %}
+        <i class="icon-book"></i>
+        {{ category[0] | join: "/" | capitalize }} <span>{{ category[1].size }}</span>
+        {% endif %}          
+      </a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+  {{ content }}
+
+</div>
+</div>
+</div>

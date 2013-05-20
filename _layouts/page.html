@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% include JB/setup %}
+
+<style >
+pre.programlisting {
+  color : #E6E1DC;
+  background-color: #232323;
+}
+</style>
+
+<div class="container">
+
+<div class="page-header">
+  <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+</div>
+
+<strong>
+	{% if page.prev == 'None' %}
+	<a class="btn disabled" href="#">Prev</a>
+	{% else %}
+	<a class="btn btn-primary"
+	   href="{{ BASE_PATH }}/{{ page.book_path }}{{ page.prev }}">Prev</a>
+	{% endif %}
+
+	{% if page.next == 'None' %}
+	<a class="btn disabled" href="#">Next</a>
+	{% else %}
+	<a class="btn btn-primary"
+	   href="{{ BASE_PATH }}/{{ page.book_path }}{{ page.next }}">Next</a>
+	{% endif %}
+<hr />
+</strong>
+
+<div class="row-fluid">
+  <div class="span12">
+    {{ content }}
+  </div>
+</div>
+
+<div class="well"><a href="#">GO TO THE TOP -></a></div> 
+
+</div> <!-- /container -->

@@ -1,0 +1,99 @@
+<hr/>
+{% for book in site.posts | limit: 3 %}
+  <div class="row row-fluid">
+  <img src="{{ BASE_PATH }}/{{ book.book_path }}{{ book.cover }}" class="span2" style="max-height: 300px;" />
+  <div class="span10">
+    {% for author in book.creator %}
+          <span class="badge badge-success pull-right">{{ author }}</span>
+      {% endfor %}
+      <h2><a href="{{ BASE_PATH }}{{ book.url }}">
+      {{ book.title }}
+      </a></h2>
+      <p>{{ book.perface }}</p>
+  </div>
+  <hr>
+  </div>
+  <hr />
+{% endfor %}
+
+
+<div class="subnav">
+  <ul class="nav nav-pills">
+    {% assign pages_list = site.pages %}
+    {% assign group = 'cat' %}
+    {% include JB/pages_list %}
+  </ul>
+</div>
+
+
+
+  <div class="subnav span3">
+    <ul class="nav nav-pills nav-stacked">
+      {% for tag in site.tags %}
+        <li><a href="{{ BASE_PATH }}/tags/{{ tag[0] }}.html">
+            {{ tag[0] }}
+            <span>{{ tag[1].size }}</span>
+        </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+
+<div class="sidebar-nav span3 pull-right">
+    <div class="well" style="width:200px; padding: 8px 0;">
+        <ul class="nav nav-list">
+            <li class="nav-header">Table of content:</li>
+                <li><a href="#">Capter 1</a></li>
+                <li><a href="#">Capter 2</a></li>
+                <li><a href="#">Capter 3</a></li>
+                <li><a href="#">Capter 4</a></li>
+                <li><a href="#">Capter 5</a></li>
+                <li><a href="#">Capter 6</a></li>
+                <li><a href="#">Capter 7</a></li>
+                <li><a href="#">Capter 8</a></li>
+                <li><a href="#">Capter 9</a></li>
+                <li><a href="#">Capter 10</a></li>
+                <li><a href="#">Capter 11</a></li>
+        </ul>
+    </div>
+</div>
+
+  {% if paginator.previous_page %}
+    <p class="previous well">
+      {% if paginator.previous_page == 1 %}
+        <a href="{{ BASE_PATH }}/">Previous</a>
+      {% else %}
+        <a href="{{ BASE_PATH }}/page{{ paginator.previous_page }}">Previous</a>
+      {% endif %}
+    </p>
+  {% else %}
+    <p class="previous well disabled">
+      <span>Previous</span>
+    </p>
+  {% endif %}
+
+
+
+  {% if paginator.next_page %}
+    <p class="next well">
+      <a href="{{ BASE_PATH }}/page{{ paginator.next_page }}">Next</a>
+    </p>
+  {% else %}
+    <p class="next well disabled">
+      <span>Next</span>
+    </p>
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
